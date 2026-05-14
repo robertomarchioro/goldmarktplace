@@ -14,10 +14,10 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 - Initial repository scaffolding (Phase 0): `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `.gitignore`.
 - Bilingual EN/IT documentation surface.
 - Curated contribution model (external plugin PRs not accepted).
+- Marketplace catalog `.claude-plugin/marketplace.json` (Phase 1).
+- `hello-world` starter plugin: demo `greet` skill, plugin manifest, README (Phase 1).
 
 ### Pending
-- `.claude-plugin/marketplace.json` (Phase 1).
-- First starter plugin under `plugins/` (Phase 1).
 - CI workflows under `.github/workflows/` (Phase 2).
 - Branch protection on `main` (Phase 2).
 - Public visibility on GitHub (Phase 3).

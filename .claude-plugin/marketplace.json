@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "goldmarktplace",
+  "description": "Curated marketplace of skills, agents, commands, and plugins for Claude Code",
+  "owner": {
+    "name": "Roberto Marchioro"
+  },
+  "plugins": [
+    {
+      "name": "hello-world",
+      "source": "./plugins/hello-world",
+      "description": "Demo plugin that greets the user — starter example for the marketplace",
+      "version": "0.1.0",
+      "author": {
+        "name": "Roberto Marchioro"
+      },
+      "category": "demo",
+      "keywords": ["demo", "starter", "hello-world"],
+      "license": "MIT"
+    }
+  ]
+}

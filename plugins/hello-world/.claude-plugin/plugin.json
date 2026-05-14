@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "hello-world",
+  "version": "0.1.0",
+  "description": "Demo plugin that greets the user — a starter example for the goldmarktplace marketplace",
+  "author": {
+    "name": "Roberto Marchioro",
+    "url": "https://github.com/robertomarchioro"
+  },
+  "homepage": "https://github.com/robertomarchioro/goldmarktplace/tree/main/plugins/hello-world",
+  "repository": "https://github.com/robertomarchioro/goldmarktplace",
+  "license": "MIT",
+  "keywords": ["demo", "starter", "hello-world"]
+}
