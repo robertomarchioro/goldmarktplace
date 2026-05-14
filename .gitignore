@@ -1,0 +1,20 @@
+# Spec / appunti interni (locale only)
+docs/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+
+# Node (se userai script JS/TS in .github/scripts/)
+node_modules/
+bun.lock
+package-lock.json
+yarn.lock
+
+# Output
+*.log
+tmp/
+.cache/

@@ -1,0 +1,27 @@
+# Changelog
+
+All notable changes to this marketplace are documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+Plugin-level changelogs live inside each plugin folder (`plugins/<name>/CHANGELOG.md`).
+This file tracks the marketplace itself: catalog entries, infrastructure, policies.
+
+## [Unreleased]
+
+### Added
+- Initial repository scaffolding (Phase 0): `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `.gitignore`.
+- Bilingual EN/IT documentation surface.
+- Curated contribution model (external plugin PRs not accepted).
+
+### Pending
+- `.claude-plugin/marketplace.json` (Phase 1).
+- First starter plugin under `plugins/` (Phase 1).
+- CI workflows under `.github/workflows/` (Phase 2).
+- Branch protection on `main` (Phase 2).
+- Public visibility on GitHub (Phase 3).
+
+---
+
+[Unreleased]: https://github.com/robertomarchioro/goldmarktplace/commits/main
