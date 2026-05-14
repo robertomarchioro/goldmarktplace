@@ -1,0 +1,32 @@
+name: 💡 Feature request
+description: Suggest an improvement to a plugin or to the marketplace
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is a **curated** marketplace — new-plugin PRs from external
+        contributors are not accepted, but ideas are very welcome. Describe the
+        problem first, the proposed solution second.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem would this solve? Who is affected?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Optional — your idea for how to address it.
+    validations:
+      required: false
+  - type: input
+    id: plugin
+    attributes:
+      label: Related plugin
+      description: Leave as N/A if this is about the marketplace itself.
+      placeholder: hello-world or N/A
+    validations:
+      required: false

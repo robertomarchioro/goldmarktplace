@@ -1,0 +1,38 @@
+name: Validate Plugins
+
+on:
+  pull_request:
+    paths:
+      - '.claude-plugin/**'
+      - 'plugins/*/.claude-plugin/**'
+      - 'plugins/*/agents/**'
+      - 'plugins/*/skills/**'
+      - 'plugins/*/commands/**'
+      - 'plugins/*/hooks/**'
+  push:
+    branches: [main]
+    paths:
+      - '.claude-plugin/**'
+      - 'plugins/**'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      # Canonical validation: `claude plugin validate` (schema check for
+      # marketplace.json, plugin.json, skill/agent/command frontmatter,
+      # hooks.json) plus a layer of security/policy invariants.
+      # warn-invariants "I1 I3" keeps everything else — including I5
+      # (external source SHA-pinning) — as a hard error.
+      - uses: anthropics/claude-plugins-community/.github/actions/validate-plugins@2ec490ecef43f7c55320f2a01d12badffba46a05
+        with:
+          marketplace-path: .claude-plugin/marketplace.json
+          warn-invariants: "I1 I3"
+          claude-cli-version: latest

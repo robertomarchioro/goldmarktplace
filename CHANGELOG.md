@@ -16,9 +16,10 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 - Curated contribution model (external plugin PRs not accepted).
 - Marketplace catalog `.claude-plugin/marketplace.json` (Phase 1).
 - `hello-world` starter plugin: demo `greet` skill, plugin manifest, README (Phase 1).
+- CI: `Validate Plugins` workflow — `claude plugin validate` plus security invariants (Phase 2).
+- GitHub issue forms (bug report, feature request) and pull request template (Phase 2).
 
 ### Pending
-- CI workflows under `.github/workflows/` (Phase 2).
 - Branch protection on `main` (Phase 2).
 - Public visibility on GitHub (Phase 3).
 

@@ -1,0 +1,54 @@
+name: 🐛 Bug report
+description: Report a problem with a plugin or with the marketplace itself
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Please **redact any secrets** before pasting logs.
+  - type: input
+    id: plugin
+    attributes:
+      label: Plugin name and version
+      description: The `@goldmarktplace` tag, or "marketplace" if it's not plugin-specific.
+      placeholder: hello-world@goldmarktplace 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: claude-version
+    attributes:
+      label: Claude Code version
+      description: Output of `claude --version`.
+      placeholder: 2.1.x
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: OS and shell
+      placeholder: Ubuntu 24.04, bash
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs. actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Redact any secrets.
+      render: shell
+    validations:
+      required: false

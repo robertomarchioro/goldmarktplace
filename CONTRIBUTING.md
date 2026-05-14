@@ -38,7 +38,7 @@ Small docs PRs are welcome:
 1. Fork the repo.
 2. Make the change on a branch.
 3. Open a PR using the [PR template](./.github/PULL_REQUEST_TEMPLATE.md).
-4. Make sure CI is green (`validate-plugins`, `validate-frontmatter`).
+4. Make sure CI is green (the `Validate Plugins` workflow).
 
 ## Code style and conventions
 

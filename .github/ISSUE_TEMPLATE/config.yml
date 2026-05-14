@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Questions & ideas
+    url: https://github.com/robertomarchioro/goldmarktplace/discussions
+    about: Ask questions or propose ideas in Discussions.
+  - name: 🔒 Report a security vulnerability
+    url: https://github.com/robertomarchioro/goldmarktplace/security/advisories/new
+    about: Report security issues privately. Do not open a public issue.
+  - name: 📦 Submit a plugin to the official Anthropic marketplace
+    url: https://clau.de/plugin-directory-submission
+    about: This marketplace is curated. Submit community plugins to Anthropic directly.
