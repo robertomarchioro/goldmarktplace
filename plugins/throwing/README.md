@@ -88,7 +88,7 @@ più calmo, niente espansione di scope.
 
 ### Quando usarlo
 
-Lancia il maiale quando stai per scrivere qualcosa di cui ti pentiresti.
+Tira un porco quando stai per scrivere qualcosa di cui ti pentiresti.
 Casi tipici:
 
 - **Claude ripete la stessa fix sbagliata.** Hai chiesto un fix. Al terzo
