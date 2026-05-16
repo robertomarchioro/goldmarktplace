@@ -10,6 +10,14 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 
 ## [Unreleased]
 
+### Added
+- `Scan Plugins` workflow — Claude-powered policy review of changed
+  marketplace entries / plugin folders, SHA-pinned to the shared
+  Anthropic action. Requires the `ANTHROPIC_API_KEY` repository secret;
+  fails closed when the secret is missing on a scan-relevant change.
+- `.github/policy/prompt.md` — security and privacy review prompt used
+  by `scan-plugins`, adapted from the public Anthropic policy.
+
 ## [0.1.0] - 2026-05-16
 
 First public release of `goldmarktplace`. The marketplace is now installable

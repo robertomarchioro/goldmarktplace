@@ -1,0 +1,68 @@
+name: Scan Plugins
+
+# Claude-powered policy review of changed marketplace entries / plugin folders.
+# Requires the ANTHROPIC_API_KEY repository secret. Fail-closed: if a
+# scan-relevant change lands without the key, the workflow fails loudly
+# instead of silently no-opping.
+
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      scan_all:
+        description: Scan every catalog entry (full re-review). Slow.
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      # workflow_dispatch has no PR diff to inspect, so always run the scan
+      # there. Otherwise, only run when files this workflow actually scans
+      # have changed.
+      - name: Check for scan-relevant changes
+        id: changes
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            echo "relevant=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if git diff --quiet "$BASE_SHA" HEAD -- .claude-plugin/marketplace.json plugins/ .github/policy/; then
+            echo "relevant=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No scan-relevant changes — skipping policy scan."
+          else
+            echo "relevant=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Fail-closed: if a scan is needed and ANTHROPIC_API_KEY is not set,
+      # do not silently no-op. The action would otherwise quietly succeed.
+      - name: Require ANTHROPIC_API_KEY when a scan is needed
+        if: steps.changes.outputs.relevant == 'true'
+        env:
+          API_KEY_SET: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+        run: |
+          if [[ "$API_KEY_SET" != "true" ]]; then
+            echo "::error::ANTHROPIC_API_KEY is not configured; refusing to skip the policy scan."
+            exit 1
+          fi
+
+      - if: steps.changes.outputs.relevant == 'true'
+        uses: anthropics/claude-plugins-community/.github/actions/scan-plugins@2ec490ecef43f7c55320f2a01d12badffba46a05
+        with:
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
+          policy-prompt: .github/policy/prompt.md
+          fail-on-findings: "true"
+          scan-all-external: ${{ inputs.scan_all || 'false' }}
+          claude-cli-version: latest
