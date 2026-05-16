@@ -39,7 +39,8 @@ The list will be populated as plugins are published. Each plugin lives in `plugi
 
 | Plugin | Description | Version |
 | :--- | :--- | :--- |
-| _coming soon_ | — | — |
+| [`hello-world`](./plugins/hello-world) | Demo plugin that greets the user | 0.1.0 |
+| [`throwing`](./plugins/throwing) | `/throwing:pigs` — cool-down signal when you are frustrated with Claude | 0.1.0 |
 
 ## Repository structure
 

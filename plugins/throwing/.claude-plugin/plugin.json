@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "throwing",
+  "version": "0.1.0",
+  "description": "User-invoked 'cool down' signal: tells Claude the user is frustrated and to tighten execution discipline for the rest of the session.",
+  "author": {
+    "name": "Roberto Marchioro",
+    "url": "https://github.com/robertomarchioro"
+  },
+  "homepage": "https://github.com/robertomarchioro/goldmarktplace/tree/main/plugins/throwing",
+  "repository": "https://github.com/robertomarchioro/goldmarktplace",
+  "license": "MIT",
+  "keywords": ["cooldown", "circuit-breaker", "ux", "control", "frustration"]
+}

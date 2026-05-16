@@ -18,6 +18,7 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 - `hello-world` starter plugin: demo `greet` skill, plugin manifest, README (Phase 1).
 - CI: `Validate Plugins` workflow — `claude plugin validate` plus security invariants (Phase 2).
 - GitHub issue forms (bug report, feature request) and pull request template (Phase 2).
+- `throwing` plugin: `/throwing:pigs` user-invoked cool-down command that tells Claude to tighten execution discipline for the rest of the session.
 
 ### Pending
 - Branch protection on `main` (Phase 2).

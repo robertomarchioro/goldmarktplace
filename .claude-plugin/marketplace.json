@@ -17,6 +17,18 @@
       "category": "demo",
       "keywords": ["demo", "starter", "hello-world"],
       "license": "MIT"
+    },
+    {
+      "name": "throwing",
+      "source": "./plugins/throwing",
+      "description": "User-invoked 'cool down' signal: tells Claude the user is frustrated and to tighten execution discipline for the rest of the session.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Roberto Marchioro"
+      },
+      "category": "productivity",
+      "keywords": ["cooldown", "circuit-breaker", "ux", "control", "frustration"],
+      "license": "MIT"
     }
   ]
 }
