@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "throwing",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "User-invoked 'cool down' signal: tells Claude the user is frustrated and to tighten execution discipline for the rest of the session.",
   "author": {
     "name": "Roberto Marchioro",
