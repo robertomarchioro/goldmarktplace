@@ -17,6 +17,14 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
   fails closed when the secret is missing on a scan-relevant change.
 - `.github/policy/prompt.md` — security and privacy review prompt used
   by `scan-plugins`, adapted from the public Anthropic policy.
+- `PRIVACY.md` — repository-level privacy policy declaring zero data
+  collection by the marketplace and by current plugins; rules for any
+  future plugin (must match the same disclosure standard).
+
+### Changed
+- `plugins/throwing/README.md` — expanded "When to use it" / "Quando
+  usarlo" with concrete bilingual use cases (retry loop, scope creep,
+  stale docs, sycophancy, pre-emptive cool-down).
 
 ## [0.1.0] - 2026-05-16
 

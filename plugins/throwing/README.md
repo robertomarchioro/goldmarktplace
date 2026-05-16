@@ -22,10 +22,28 @@ calmer phrasing, no scope expansion.
 Throw the pigs when you are about to write something you would regret. Common
 moments:
 
-- Claude just repeated the same broken approach for the third time.
-- Claude expanded scope and broke something adjacent to what you asked.
-- Claude is being defensive or verbose when you wanted a quick fix.
-- You are about to escalate to insults — type `/throwing:pigs` first.
+- **Claude keeps repeating a broken fix.** You asked for a fix. After the
+  third attempt with the same wrong approach (just tweaked slightly each
+  time) you are done. `/throwing:pigs` stops the retry loop, forces a
+  diagnosis (typo vs structural), and proposes a fundamentally different
+  path before touching more code.
+- **Scope creep on a small change.** You asked for a one-line fix. Claude
+  returned the fix plus three "improvements" plus a refactor of an unrelated
+  module — and broke the build. `/throwing:pigs` locks Claude inside the
+  requested scope for the rest of the session.
+- **Hallucinated API or stale documentation.** Claude confidently called a
+  function that doesn't exist, or used a deprecated API. `/throwing:pigs`
+  requires Claude to fetch current authoritative documentation (official
+  docs, Context7, the library's source) before proposing anything else, and
+  to cite what it actually read.
+- **Sycophantic agreement instead of behavior change.** Claude keeps saying
+  "you're absolutely right" and making the same mistake. `/throwing:pigs`
+  bans sycophantic phrasing for the rest of the session — the only
+  acceptable acknowledgment is changing behavior.
+- **Pre-emptive cool-down before you escalate.** You can feel yourself about
+  to type something rude. `/throwing:pigs` first — Claude re-anchors on the
+  goal, asks if your current understanding is correct, and slows the turn
+  cadence so the next exchange has room to land cleanly.
 
 ## What changes after invocation
 
@@ -70,13 +88,32 @@ più calmo, niente espansione di scope.
 
 ### Quando usarlo
 
-Lancia il maiale quando stai per scrivere qualcosa di cui ti pentiresti. Casi
-tipici:
+Lancia il maiale quando stai per scrivere qualcosa di cui ti pentiresti.
+Casi tipici:
 
-- Claude ha ripetuto per la terza volta lo stesso approccio sbagliato.
-- Claude ha allargato lo scope e ha rotto qualcosa di adiacente alla richiesta.
-- Claude è difensivo o prolisso quando volevi un fix rapido.
-- Stai per passare agli insulti — digita prima `/throwing:pigs`.
+- **Claude ripete la stessa fix sbagliata.** Hai chiesto un fix. Al terzo
+  tentativo con lo stesso approccio (con piccole variazioni) sei al
+  limite. `/throwing:pigs` ferma il loop, forza una diagnosi (typo vs
+  strutturale) e propone un approccio fondamentalmente diverso prima di
+  toccare altro codice.
+- **Scope creep su una modifica piccola.** Hai chiesto una riga di fix.
+  Claude ha restituito il fix più tre "miglioramenti" più il refactor di
+  un modulo non correlato — e ha rotto la build. `/throwing:pigs` blocca
+  Claude dentro lo scope richiesto per il resto della sessione.
+- **API allucinata o documentazione obsoleta.** Claude ha chiamato con
+  sicurezza una funzione che non esiste, o ha usato una API deprecated.
+  `/throwing:pigs` obbliga a recuperare documentazione autoritativa
+  aggiornata (docs ufficiali, Context7, sorgenti della libreria) prima di
+  proporre altro, e a citare cosa ha effettivamente letto.
+- **Accordi servili invece di cambiare comportamento.** Claude continua a
+  dire "hai assolutamente ragione" e a fare lo stesso errore.
+  `/throwing:pigs` banna le frasi servili per il resto della sessione —
+  l'unico ack accettabile è cambiare comportamento.
+- **Cool-down preventivo prima di escalare.** Senti che stai per scrivere
+  qualcosa di scortese. `/throwing:pigs` prima — Claude si ri-ancora
+  sull'obiettivo, chiede se la tua comprensione è corretta, e rallenta
+  il ritmo dei turni così il prossimo scambio ha spazio per atterrare
+  bene.
 
 ### Cosa cambia dopo l'invocazione
 
