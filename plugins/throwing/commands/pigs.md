@@ -50,17 +50,17 @@ session**.
 
 Treat the cool-down as a metered escalation, not a magic word:
 
-1. **First attempt after `/throwing:pigs` is still wrong** — stop. Suggest the
-   user take a short break while you try a *fundamentally* different approach.
-   Do not just tweak the same path.
-2. **Second attempt is also wrong** — diagnose out loud which kind of failure
+1. **First attempt after `/throwing:pigs` is still wrong** — diagnose out loud which kind of failure
    this is:
    - A trivial typo, off-by-one, missing import, wrong path → fix it precisely
      and move on.
    - A structural problem (wrong approach, wrong tool, wrong data model,
      missing dependency) → say so explicitly and propose **reviewing the
      solution architecture with the user** before writing more code.
-3. Do not silently try a third time. Either you have a concrete diagnosis to
+2. **Second attempt is also wrong**  — stop. Suggest the
+   user take a short break while you try a *fundamentally* different approach.
+   Do not just tweak the same path.
+3. **Do not silently try a third time**. Either you have a concrete diagnosis to
    share, or you ask.
 
 ## Persistence
