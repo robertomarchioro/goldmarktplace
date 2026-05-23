@@ -5,6 +5,15 @@ recent mistake, type `/throwing:pigs` and Claude will tighten execution
 discipline for the rest of the session — smaller turns, more verification,
 calmer phrasing, no scope expansion.
 
+## Why "throwing pigs"?
+
+`/throwing:pigs` is a calque of the Venetian expression *tirar porchi* —
+literally "to throw pigs", idiomatically "to let out a string of curses". It's
+exactly what a frustrated user is one step away from doing. Invoking the
+command is a way of saying *"I'm about to start swearing"* — and channeling
+that into a cool-down instead. The plugin name (`throwing` + `pigs`) is built
+entirely around this.
+
 ## Install
 
 ```bash
@@ -74,6 +83,15 @@ Claude Code: digita `/throwing:pigs` e Claude stringe la disciplina di
 esecuzione per il resto della sessione — turni più piccoli, più verifica, tono
 più calmo, niente espansione di scope.
 
+### Perché "throwing pigs"
+
+`/throwing:pigs` è il calco dell'espressione veneta *tirar porchi* —
+letteralmente "tirare maiali", idiomaticamente "bestemmiare, sparare una
+sfilza di porchi". È esattamente ciò che un utente frustrato è a un passo dal
+fare. Invocare il comando è un modo per dire *"sto per tirar porchi"* — e
+incanalare quella frustrazione in un cool-down. Il nome del plugin
+(`throwing` + `pigs`) è costruito tutto attorno a questo.
+
 ### Installazione
 
 ```bash
@@ -88,7 +106,7 @@ più calmo, niente espansione di scope.
 
 ### Quando usarlo
 
-Lancia il maiale quando stai per scrivere qualcosa di cui ti pentiresti.
+Tira porchi quando stai per scrivere qualcosa di cui ti pentiresti.
 Casi tipici:
 
 - **Claude ripete la stessa fix sbagliata.** Hai chiesto un fix. Al terzo

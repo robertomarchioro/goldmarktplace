@@ -25,6 +25,9 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 - `plugins/throwing/README.md` — expanded "When to use it" / "Quando
   usarlo" with concrete bilingual use cases (retry loop, scope creep,
   stale docs, sycophancy, pre-emptive cool-down).
+- `plugins/throwing/README.md` — added a "Why \"throwing pigs\"" hook
+  explaining the Venetian *tirar porchi* pun; the Italian copy now uses
+  the idiom ("Tira porchi") instead of the literal "lancia il maiale".
 
 ## [0.1.0] - 2026-05-16
 
