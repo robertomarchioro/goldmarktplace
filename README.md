@@ -37,10 +37,10 @@ Then browse plugins with `/plugin` and install one with:
 
 Each plugin lives in `plugins/<name>/` with its own `README.md`.
 
-| Plugin | Description | Version |
-| :--- | :--- | :--- |
-| [`hello-world`](./plugins/hello-world) | Demo plugin that greets the user | 0.1.0 |
-| [`throwing`](./plugins/throwing) | `/throwing:pigs` — cool-down signal when you are frustrated with Claude | 0.1.1 |
+| Plugin | Description | Version | Install |
+| :--- | :--- | :--- | :--- |
+| [`hello-world`](./plugins/hello-world) | Demo plugin that greets the user | 0.1.0 | `/plugin install hello-world@goldmarktplace` |
+| [`throwing`](./plugins/throwing) | `/throwing:pigs` — cool-down signal when you are frustrated with Claude | 0.1.1 | `/plugin install throwing@goldmarktplace` |
 
 ## Repository structure
 
