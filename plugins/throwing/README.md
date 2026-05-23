@@ -69,13 +69,24 @@ For the rest of the session Claude will:
 
 This is a Claude Code plugin, but the command is just a portable prompt — it
 works in [OpenCode](https://opencode.ai) too. OpenCode does not install Claude
-Code marketplaces, so copy the ready-made variant instead:
+Code marketplaces, so drop the ready-made variant into your OpenCode commands
+directory with one command.
 
-1. Copy [`opencode/throwing-pigs.md`](./opencode/throwing-pigs.md) into your
-   OpenCode commands directory:
-   - Project: `.opencode/command/throwing-pigs.md`
-   - Global: `~/.config/opencode/command/throwing-pigs.md`
-2. Invoke it with `/throwing-pigs` (OpenCode commands are not namespaced).
+Global (every project):
+
+```bash
+mkdir -p ~/.config/opencode/command && curl -fsSL https://raw.githubusercontent.com/robertomarchioro/goldmarktplace/main/plugins/throwing/opencode/throwing-pigs.md -o ~/.config/opencode/command/throwing-pigs.md
+```
+
+Current project only:
+
+```bash
+mkdir -p .opencode/command && curl -fsSL https://raw.githubusercontent.com/robertomarchioro/goldmarktplace/main/plugins/throwing/opencode/throwing-pigs.md -o .opencode/command/throwing-pigs.md
+```
+
+Then invoke it with `/throwing-pigs` (OpenCode commands are not namespaced);
+re-run the same command to update. You can also copy
+[`opencode/throwing-pigs.md`](./opencode/throwing-pigs.md) by hand instead.
 
 The variant is identical to the Claude Code command minus the Claude-only
 `disable-model-invocation` field. The behavior — slow down, verify, no
@@ -164,13 +175,24 @@ Per il resto della sessione Claude:
 
 Questo è un plugin Claude Code, ma il comando è solo un prompt portabile —
 funziona anche in [OpenCode](https://opencode.ai). OpenCode non installa i
-marketplace di Claude Code, quindi copia la variante già pronta:
+marketplace di Claude Code, quindi metti la variante già pronta nella tua
+cartella command di OpenCode con un solo comando.
 
-1. Copia [`opencode/throwing-pigs.md`](./opencode/throwing-pigs.md) nella tua
-   cartella command di OpenCode:
-   - Progetto: `.opencode/command/throwing-pigs.md`
-   - Globale: `~/.config/opencode/command/throwing-pigs.md`
-2. Invocalo con `/throwing-pigs` (i command di OpenCode non hanno namespace).
+Globale (tutti i progetti):
+
+```bash
+mkdir -p ~/.config/opencode/command && curl -fsSL https://raw.githubusercontent.com/robertomarchioro/goldmarktplace/main/plugins/throwing/opencode/throwing-pigs.md -o ~/.config/opencode/command/throwing-pigs.md
+```
+
+Solo nel progetto corrente:
+
+```bash
+mkdir -p .opencode/command && curl -fsSL https://raw.githubusercontent.com/robertomarchioro/goldmarktplace/main/plugins/throwing/opencode/throwing-pigs.md -o .opencode/command/throwing-pigs.md
+```
+
+Poi invocalo con `/throwing-pigs` (i command di OpenCode non hanno namespace);
+ri-lancia lo stesso comando per aggiornarlo. In alternativa copia a mano
+[`opencode/throwing-pigs.md`](./opencode/throwing-pigs.md).
 
 La variante è identica al comando Claude Code, tolto il campo
 `disable-model-invocation` (solo Claude). Il comportamento — rallenta,
