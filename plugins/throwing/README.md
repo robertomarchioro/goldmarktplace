@@ -86,9 +86,9 @@ più calmo, niente espansione di scope.
 ### Perché "throwing pigs"
 
 `/throwing:pigs` è il calco dell'espressione veneta *tirar porchi* —
-letteralmente "tirare maiali", idiomaticamente "bestemmiare, sparare una
-sfilza di porchi". È esattamente ciò che un utente frustrato è a un passo dal
-fare. Invocare il comando è un modo per dire *"sto per tirar porchi"* — e
+idiomaticamente "bestemmiare, sparare una sfilza di porchi". 
+È esattamente ciò che un utente frustrato è a un passo dal fare.
+Invocare il comando è un modo per dire *"sto per tirar porchi"* — e
 incanalare quella frustrazione in un cool-down. Il nome del plugin
 (`throwing` + `pigs`) è costruito tutto attorno a questo.
 
