@@ -11,7 +11,7 @@
 
 ## Status
 
-🚧 **Marketplace in initial setup.** The catalog is being scaffolded. The first plugins will land soon — follow this repo for updates.
+✅ **Live.** The marketplace is public and installable, with its first plugins available — see the table below.
 
 ## Install the marketplace
 
@@ -35,12 +35,12 @@ Then browse plugins with `/plugin` and install one with:
 
 ## Plugins
 
-The list will be populated as plugins are published. Each plugin lives in `plugins/<name>/` with its own `README.md`.
+Each plugin lives in `plugins/<name>/` with its own `README.md`.
 
 | Plugin | Description | Version |
 | :--- | :--- | :--- |
 | [`hello-world`](./plugins/hello-world) | Demo plugin that greets the user | 0.1.0 |
-| [`throwing`](./plugins/throwing) | `/throwing:pigs` — cool-down signal when you are frustrated with Claude | 0.1.0 |
+| [`throwing`](./plugins/throwing) | `/throwing:pigs` — cool-down signal when you are frustrated with Claude | 0.1.1 |
 
 ## Repository structure
 
@@ -91,7 +91,7 @@ Marketplace curato di skill, agent, command e plugin per [Claude Code](https://c
 
 ### Stato
 
-🚧 Marketplace in fase di setup iniziale. Il catalogo è in costruzione, i primi plugin arriveranno presto.
+✅ Live. Il marketplace è pubblico e installabile, con i primi plugin disponibili (vedi la tabella nella sezione inglese).
 
 ### Installazione
 
