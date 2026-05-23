@@ -65,6 +65,22 @@ For the rest of the session Claude will:
 - Confirm before any destructive or scope-expanding action.
 - Cut defensive phrasing, apology theater, and "while I'm at it" detours.
 
+## Using this in OpenCode
+
+This is a Claude Code plugin, but the command is just a portable prompt — it
+works in [OpenCode](https://opencode.ai) too. OpenCode does not install Claude
+Code marketplaces, so copy the ready-made variant instead:
+
+1. Copy [`opencode/throwing-pigs.md`](./opencode/throwing-pigs.md) into your
+   OpenCode commands directory:
+   - Project: `.opencode/command/throwing-pigs.md`
+   - Global: `~/.config/opencode/command/throwing-pigs.md`
+2. Invoke it with `/throwing-pigs` (OpenCode commands are not namespaced).
+
+The variant is identical to the Claude Code command minus the Claude-only
+`disable-model-invocation` field. The behavior — slow down, verify, no
+sycophancy, escalation ladder — is agent-agnostic.
+
 ## Disclosure
 
 This plugin makes **no network calls**, registers **no hooks**, and reads **no
@@ -143,6 +159,23 @@ Per il resto della sessione Claude:
   `git status` prima dello staging.
 - Conferma prima di azioni distruttive o di espansione di scope.
 - Taglia fraseggio difensivo, apology theater e divagazioni "già che ci sono".
+
+### Usarlo in OpenCode
+
+Questo è un plugin Claude Code, ma il comando è solo un prompt portabile —
+funziona anche in [OpenCode](https://opencode.ai). OpenCode non installa i
+marketplace di Claude Code, quindi copia la variante già pronta:
+
+1. Copia [`opencode/throwing-pigs.md`](./opencode/throwing-pigs.md) nella tua
+   cartella command di OpenCode:
+   - Progetto: `.opencode/command/throwing-pigs.md`
+   - Globale: `~/.config/opencode/command/throwing-pigs.md`
+2. Invocalo con `/throwing-pigs` (i command di OpenCode non hanno namespace).
+
+La variante è identica al comando Claude Code, tolto il campo
+`disable-model-invocation` (solo Claude). Il comportamento — rallenta,
+verifica, niente sycophancy, escalation ladder — è agnostico rispetto
+all'agente.
 
 ### Disclosure
 

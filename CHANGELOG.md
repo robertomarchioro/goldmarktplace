@@ -20,6 +20,10 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 - `PRIVACY.md` — repository-level privacy policy declaring zero data
   collection by the marketplace and by current plugins; rules for any
   future plugin (must match the same disclosure standard).
+- `plugins/throwing/opencode/throwing-pigs.md` — OpenCode-format variant
+  of the command (drop-in for `.opencode/command/`), so the cool-down
+  prompt is usable outside Claude Code. Ignored by the Claude Code
+  plugin loader.
 
 ### Changed
 - `plugins/throwing/README.md` — expanded "When to use it" / "Quando
