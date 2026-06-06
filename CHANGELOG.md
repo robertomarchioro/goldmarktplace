@@ -10,36 +10,60 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-06-06
+
+This release adds the `gh-triage` plugin, an OpenCode-compatible variant of
+the `throwing` command, the marketplace's first privacy policy, and an
+optional Claude-powered security scan workflow.
+
 ### Added
-- `Scan Plugins` workflow — Claude-powered policy review of changed
-  marketplace entries / plugin folders, SHA-pinned to the shared
-  Anthropic action. Requires the `ANTHROPIC_API_KEY` repository secret;
-  fails closed when the secret is missing on a scan-relevant change.
-- `.github/policy/prompt.md` — security and privacy review prompt used
-  by `scan-plugins`, adapted from the public Anthropic policy.
-- `PRIVACY.md` — repository-level privacy policy declaring zero data
-  collection by the marketplace and by current plugins; rules for any
-  future plugin (must match the same disclosure standard).
-- `plugins/throwing/opencode/throwing-pigs.md` — OpenCode-format variant
-  of the command (drop-in for `.opencode/command/`), so the cool-down
-  prompt is usable outside Claude Code. Ignored by the Claude Code
+
+**Plugins**
+- `gh-triage` 0.1.0 — new plugin: end-to-end GitHub issue triage command
+  (`/gh-triage:triage`) that classifies feature vs fix, gates and prioritizes
+  features, resolves fixes in parallel/coordinated groups, reviews, opens
+  PRs, waits for CI, auto-merges on green, and updates the changelog. Ships
+  three bundled agents (`issue-classifier`, `fix-impact-analyzer`,
+  `fix-implementer`); review phase optionally uses
+  `code-reviewer`/`security-reviewer` when installed from Anthropic's
+  official plugin marketplace or Agent Skills. Makes no network calls of its
+  own — all GitHub access goes through the local `gh` CLI.
+- `plugins/throwing/opencode/throwing-pigs.md` — OpenCode-format variant of
+  the `/throwing:pigs` command (drop-in for `.opencode/command/`), so the
+  cool-down prompt is usable outside Claude Code. Ignored by the Claude Code
   plugin loader.
-- `plugins/gh-triage` — new plugin: end-to-end GitHub issue triage
-  command (`/gh-triage:triage`) that classifies feature vs fix, gates and
-  prioritizes features, resolves fixes in parallel/coordinated groups,
-  reviews, opens PRs, waits for CI, auto-merges on green, and updates the
-  changelog. Ships three bundled agents (`issue-classifier`,
-  `fix-impact-analyzer`, `fix-implementer`); review phase optionally uses
-  `code-reviewer`/`security-reviewer` when installed. No network calls of
-  its own — all GitHub access goes through the local `gh` CLI.
+
+**CI and policy**
+- `Scan Plugins` workflow — Claude-powered policy review of changed
+  marketplace entries / plugin folders, SHA-pinned to the shared Anthropic
+  action. Requires the `ANTHROPIC_API_KEY` repository secret; fails closed
+  when the secret is missing on a scan-relevant change.
+- `.github/policy/prompt.md` — security and privacy review prompt used by
+  `scan-plugins`, adapted from the public Anthropic policy.
+- `PRIVACY.md` — repository-level privacy policy declaring zero data
+  collection by the marketplace and listing the per-plugin disclosure rules
+  any future plugin must meet.
 
 ### Changed
-- `plugins/throwing/README.md` — expanded "When to use it" / "Quando
-  usarlo" with concrete bilingual use cases (retry loop, scope creep,
-  stale docs, sycophancy, pre-emptive cool-down).
-- `plugins/throwing/README.md` — added a "Why \"throwing pigs\"" hook
-  explaining the Venetian *tirar porchi* pun; the Italian copy now uses
-  the idiom ("Tira porchi") instead of the literal "lancia il maiale".
+
+**Plugin documentation (alignment with marketplace standard)**
+- `plugins/throwing/README.md` — expanded "When to use it" / "Quando usarlo"
+  with concrete bilingual use cases (retry loop, scope creep, stale docs,
+  sycophancy, pre-emptive cool-down); added a "Why \"throwing pigs\"" hook
+  explaining the Venetian *tirar porchi* pun; the Italian copy now uses the
+  idiom ("Tira porchi") instead of the literal "lancia il maiale"; the
+  OpenCode install step was rewritten as a `curl` one-liner (EN + IT).
+- `plugins/gh-triage/README.md` — restructured to match the marketplace
+  standard (Install moved to the top, "Network & data" renamed to
+  "Disclosure", optional companions now point to Anthropic's official plugin
+  marketplace and Agent Skills) and given a full bilingual EN/IT mirror.
+- `PRIVACY.md` — added an honest disclosure entry for `gh-triage` 0.1.0
+  (uses the local `gh` CLI for GitHub API calls under the user's credentials;
+  no network of its own).
+
+**Root documentation**
+- `README.md` — first public-release status, plugin install command column in
+  the plugins table, and a row for `gh-triage`.
 
 ## [0.1.0] - 2026-05-16
 
@@ -80,5 +104,6 @@ from GitHub via `/plugin marketplace add robertomarchioro/goldmarktplace`.
 
 ---
 
-[Unreleased]: https://github.com/robertomarchioro/goldmarktplace/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/robertomarchioro/goldmarktplace/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/robertomarchioro/goldmarktplace/releases/tag/v0.2.0
 [0.1.0]: https://github.com/robertomarchioro/goldmarktplace/releases/tag/v0.1.0
