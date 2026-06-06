@@ -24,6 +24,14 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
   of the command (drop-in for `.opencode/command/`), so the cool-down
   prompt is usable outside Claude Code. Ignored by the Claude Code
   plugin loader.
+- `plugins/gh-triage` — new plugin: end-to-end GitHub issue triage
+  command (`/gh-triage:triage`) that classifies feature vs fix, gates and
+  prioritizes features, resolves fixes in parallel/coordinated groups,
+  reviews, opens PRs, waits for CI, auto-merges on green, and updates the
+  changelog. Ships three bundled agents (`issue-classifier`,
+  `fix-impact-analyzer`, `fix-implementer`); review phase optionally uses
+  `code-reviewer`/`security-reviewer` when installed. No network calls of
+  its own — all GitHub access goes through the local `gh` CLI.
 
 ### Changed
 - `plugins/throwing/README.md` — expanded "When to use it" / "Quando
