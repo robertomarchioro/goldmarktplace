@@ -41,6 +41,7 @@ Each plugin lives in `plugins/<name>/` with its own `README.md`.
 | :--- | :--- | :--- | :--- |
 | [`hello-world`](./plugins/hello-world) | Demo plugin that greets the user | 0.1.0 | `/plugin install hello-world@goldmarktplace` |
 | [`throwing`](./plugins/throwing) | `/throwing:pigs` — cool-down signal when you are frustrated with Claude | 0.1.1 | `/plugin install throwing@goldmarktplace` |
+| [`gh-triage`](./plugins/gh-triage) | `/gh-triage:triage` — end-to-end GitHub issue triage: classify, prioritize, implement, review, PR, auto-merge | 0.1.0 | `/plugin install gh-triage@goldmarktplace` |
 
 ## Repository structure
 

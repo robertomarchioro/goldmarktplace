@@ -42,6 +42,17 @@ exactly what it does. Current state:
 - Single user-invoked command (`/throwing:pigs`,
   `disable-model-invocation: true`); pure in-context prompt engineering.
 
+### `gh-triage` 0.1.0
+- Makes **no network calls of its own**.
+- Uses the local `gh` CLI (already authenticated by the user) to read open
+  issues and to perform issue, label, milestone, branch, and PR operations on
+  the repository where the command runs. All such requests go to the GitHub
+  API with the user's credentials.
+- Reads project files for read-only impact analysis; the bundled implementer
+  agent writes changes on isolated git worktrees / branches before opening
+  PRs.
+- Registers no hooks.
+
 Any future plugin added to this marketplace will be documented in the same
 way and must follow the rules in [`SECURITY.md`](./SECURITY.md) — no
 undisclosed telemetry, no ungated hooks, no data collection beyond the
@@ -112,6 +123,13 @@ Stato attuale:
 - **`throwing`** 0.1.1 — nessuna chiamata di rete, nessun hook, nessuna
   lettura di file. Singolo command user-invoked
   (`disable-model-invocation: true`); pure prompt engineering in-context.
+- **`gh-triage`** 0.1.0 — **nessuna chiamata di rete di propria iniziativa**;
+  usa la `gh` CLI locale dell'utente (già autenticata) per leggere le issue
+  e per eseguire operazioni su issue, label, milestone, branch e PR sul
+  repository da cui parte il comando — tutte le richieste vanno alle API
+  di GitHub con le credenziali dell'utente. Legge i file del progetto per
+  impact analysis read-only; l'agent implementer scrive su worktree/branch
+  isolati prima di aprire le PR. Non registra hook.
 
 Ogni futuro plugin sarà documentato allo stesso modo e dovrà seguire le
 regole in [`SECURITY.md`](./SECURITY.md): niente telemetria nascosta,
