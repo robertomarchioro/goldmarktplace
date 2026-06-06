@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "gh-triage",
+  "version": "0.1.0",
+  "description": "Triage open GitHub issues end to end: classify feature vs fix, gate and prioritize features, resolve fixes in parallel or coordinated groups, review, open PRs, wait for CI, auto-merge on green, and update the changelog.",
+  "author": {
+    "name": "Roberto Marchioro",
+    "url": "https://github.com/robertomarchioro"
+  },
+  "homepage": "https://github.com/robertomarchioro/goldmarktplace/tree/main/plugins/gh-triage",
+  "repository": "https://github.com/robertomarchioro/goldmarktplace",
+  "license": "MIT",
+  "keywords": ["github", "issues", "triage", "orchestration", "pull-request", "ci", "automation"]
+}
