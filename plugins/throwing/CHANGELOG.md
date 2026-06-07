@@ -7,6 +7,17 @@ and this plugin adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- `skills/savata/launch.svg` — one-shot animated SVG of the
+  slipper-throw, embedded centered in the Companion skill section of the
+  README (referenced from both EN and IT — one file, two references).
+  🩴 follows a parabolic arc with a tumble in flight, fades out at
+  impact, and S'CIAF! punches in with a scale + fade-in effect at the
+  landing point. Pure SMIL (`<animateMotion>`, `<animate>`,
+  `<animateTransform>` with `fill="freeze"`); no JS, no external deps —
+  renders natively in GitHub. Live invocation of the skill keeps the
+  static ASCII frame as before (markdown payloads cannot animate).
+
 ### Fixed
 - `skills/savata/SKILL.md` — removed the redundant `name: savata` line
   from the frontmatter. With the explicit `name` field set, the skill

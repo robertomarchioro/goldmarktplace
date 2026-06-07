@@ -111,6 +111,12 @@ Escalation is in-context: first time = a (motherly) threat; second time on the
 same friction = the launch. Tone is always motherly — sharp but never spiteful.
 After thirty seconds, back to work together.
 
+<p align="center">
+  <img src="./skills/savata/launch.svg"
+       alt="Slipper-throw animation: a slipper flies in a parabolic arc and lands with a S'CIAF impact"
+       width="600">
+</p>
+
 **v1 design note.** `savata` is implemented purely as a skill — no hooks. The
 always-on watchfulness lives entirely in the skill's `description` (always in
 context). This preserves the plugin's purity: no hooks, no network, no file
@@ -287,6 +293,12 @@ Due cancelli non negoziabili prima di qualsiasi savata:
 L'escalation vive nel contesto: la prima volta è una minaccia (materna), la
 seconda sullo stesso attrito è il lancio. Il tono è sempre materno — secco ma
 mai astioso. Dopo trenta secondi si torna a lavorare insieme.
+
+<p align="center">
+  <img src="./skills/savata/launch.svg"
+       alt="Animazione del lancio della savata: una ciabatta vola in arco parabolico e atterra con un S'CIAF"
+       width="600">
+</p>
 
 **Nota di design v1.** `savata` è implementata puramente come skill — niente
 hook. La sorveglianza always-on vive interamente nella `description` della
