@@ -65,17 +65,17 @@ marcatore 🩴 o la riga in dialetto)
 ## Payload
 1. Apri con **🩴**.
 2. Riga in dialetto (minaccia materna). Definitiva:
-   «Te dago 'na savatà.»
+   «Varda che te dago 'na savatà.»
 3. **Scontrino:** 1–2 righe che citano la prova.
 4. **Fix:** la singola cosa da migliorare nell'approccio.
 5. Torna al lavoro. Una sola, niente predica.
-Al **LANCIO** (seconda savata), subito sotto la riga in dialetto e prima dello
-scontrino, stampa il frame della traiettoria:
+Al **LANCIO** (seconda savata), la riga in dialetto diventa "Desso te riva la savatà"
+subito sotto la riga e prima dello scontrino, stampa il frame della traiettoria:
 
 ```
        . - ~ - .
-    .'         '.
-  c__>           *  SCIAF!
+    .'          '.
+  🩴              *  SCIAF!
 ```
 
 Tono: sempre materno — secco ma non astioso. Cavata la savata, dopo trenta
