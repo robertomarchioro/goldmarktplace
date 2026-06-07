@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "throwing",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Two paired tools for friction in a Claude Code session: /throwing:pigs (user-invoked cool-down when Claude has made a mistake) and /throwing:savata (model-invocable inverse — a motherly redirect Claude emits when the friction comes from upstream of the screen, not from a mistake of its own).",
   "author": {
     "name": "Roberto Marchioro",

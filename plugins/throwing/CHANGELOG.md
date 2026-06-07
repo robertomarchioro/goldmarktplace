@@ -7,73 +7,70 @@ and this plugin adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-06-07
+
+Polish pass on the 0.2.0 savata release: English service door for
+non-Italian readers, looping animated SVG for the GitHub README,
+namespace registration fix, and structural cleanup of the dialect-line
+escalation in `SKILL.md` after the user split it into threat + launch.
+
+### Added
+- `skills/savata/README.md` — short English brief (~300 words) acting
+  as a service door into the (Italian) savata artifacts. Covers what
+  the skill is, the two gates, the in-context escalation, and
+  explicitly states why the canonical `SKILL.md` and `COSCIENZA.md`
+  stay in Italian. GitHub auto-renders it when a visitor lands on the
+  skill folder. Touches no Italian artifact.
+- `skills/savata/launch.svg` — looping 2.5s animated SVG of the
+  slipper-throw, embedded centered in the Companion skill section of
+  the README (referenced from both EN and IT — one file, two
+  references). 🩴 follows a parabolic arc with a tumble in flight,
+  fades out at impact, and S'CIAF! punches in (scale + fade-in) at the
+  landing point, holds, fades out before the next iteration. Pure
+  SMIL; no JS, no external deps. Live invocation of the skill keeps
+  the static ASCII frame — markdown payloads cannot animate.
+
 ### Changed
 - `skills/savata/SKILL.md` — polish pass on the Payload section after
-  the user-authored two-line escalation update (threat:
+  the user-authored two-line dialect escalation (threat:
   *«Varda che te dago 'na savatà.»* / launch:
   *«Desso te riva la savatà.»*):
   - Step 2 now enumerates the two dialect lines explicitly under
     `Per la minaccia` and `Per il lancio` sub-bullets (the previous
-    "Definitiva:" label became misleading after a second line was
+    `Definitiva:` label became misleading after a second line was
     added).
   - Removed the redundant inline launch-line repetition from the
     paragraph that introduces the ASCII trajectory frame; the single
     source of truth for both lines is now step 2.
-  - Quote style aligned: both lines use «caporali» with a final
-    period (the launch line was in straight quotes without a period).
+  - Quote style aligned: both lines use «caporali» with a final period
+    (the launch line was in straight quotes without a period).
   - ASCII bottom row: one extra space before `*` so the parabola's
     apex sits closer to the midpoint between 🩴 (launch) and `*`
     (impact).
-
-### Added
-- `skills/savata/README.md` — short English brief acting as a
-  service door into the (Italian) savata artifacts. Covers what the
-  skill is, the two gates, the in-context escalation, and explicitly
-  states why the canonical `SKILL.md` and `COSCIENZA.md` stay in
-  Italian (the gesture is Venetian; *cancelli*, *scontrino*, *porte*
-  and the dialect line carry register the translation would lose).
-  GitHub auto-renders it when a visitor lands on the skill folder.
-  Touches no Italian artifact.
-- `skills/savata/launch.svg` — looping animated SVG of the
-  slipper-throw, embedded centered in the Companion skill section of the
-  README (referenced from both EN and IT — one file, two references).
-  2.5s loop: a brief rest, then 🩴 follows a parabolic arc with a tumble
-  in flight, fades out at impact, and S'CIAF! punches in (scale +
-  fade-in) at the landing point, holds, fades out before the next
-  iteration. Pure SMIL (`<animateMotion>`, `<animate>`,
-  `<animateTransform>` with `repeatCount="indefinite"` and coordinated
-  `keyTimes`/`values`); no JS, no external deps — renders natively in
-  GitHub. Live invocation of the skill keeps the static ASCII frame as
-  before (markdown payloads cannot animate).
-
-### Fixed
-- `skills/savata/SKILL.md` — removed the redundant `name: savata` line
-  from the frontmatter. With the explicit `name` field set, the skill
-  was being registered in Claude Code without the `throwing:` namespace
-  prefix (showing up at the prompt as `/savata` instead of
-  `/throwing:savata`). The directory basename `savata` already provides
-  the same skill name as the documented fallback, and combined with the
-  plugin namespace the invocation is now consistently `/throwing:savata`.
-  Pattern now matches `plugins/throwing/commands/pigs.md` (no `name`
-  field → `/throwing:pigs`) and
-  `plugins/hello-world/skills/greet/SKILL.md` (no `name` field →
-  `/hello-world:greet`).
-
-### Changed
-- README OpenCode section reframed as a standalone artifact in its own
-  right ("OpenCode variant: `throwing-pigs` only" / "Variante OpenCode:
-  solo `throwing-pigs`"), with the no-`savata`-variant fact stated up
-  front and structurally rather than as a sidebar. Makes it unambiguous
-  that the OpenCode export covers `pigs` only and that `savata` has no
-  OpenCode counterpart (a model-invocable gesture cannot survive in a
-  user-invoked command system).
-- README inline ethnographic note added to the `Companion skill` section
-  (EN + IT, "Why \"savata\"." / "Perché \"savata\"."): anchors the
-  gesture to the Venetian linguistic tradition — *savata* = ciabatta;
-  *savatà* = the noun for the blow; the maternal repertoire
+- README OpenCode section reframed as a standalone `throwing-pigs`-only
+  variant with the no-`savata`-equivalent fact stated structurally
+  (not as a sidebar) — a model-invocable gesture cannot survive in a
+  user-invoked command system.
+- README inline ethnographic note added to the `Companion skill`
+  section (EN + IT, "Why \"savata\"." / "Perché \"savata\"."): anchors
+  the gesture to the Venetian linguistic tradition — *savata* =
+  ciabatta; *savatà* = the noun for the blow; the maternal repertoire
   (*"Vara che me cavo na savata!"* → *"Te dago 'na savatà"*) is the
   household reality the plugin's threat → launch escalation literally
   transposes.
+
+### Fixed
+- `skills/savata/SKILL.md` — removed the redundant `name: savata` line
+  from the frontmatter. The explicit `name` was causing the skill to
+  be registered in Claude Code without the `throwing:` namespace
+  prefix (showing up at the prompt as `/savata` instead of
+  `/throwing:savata`). The directory basename `savata` already
+  provides the same skill name as the documented fallback, and
+  combined with the plugin namespace the invocation is now
+  consistently `/throwing:savata`. Pattern now matches
+  `plugins/throwing/commands/pigs.md` (no `name` field →
+  `/throwing:pigs`) and `plugins/hello-world/skills/greet/SKILL.md`
+  (no `name` field → `/hello-world:greet`).
 
 ## [0.2.0] - 2026-06-07
 
@@ -154,6 +151,7 @@ First release of `throwing`.
 ---
 
 [Unreleased]: https://github.com/robertomarchioro/goldmarktplace/tree/main/plugins/throwing
+[0.2.1]: https://github.com/robertomarchioro/goldmarktplace/tree/main/plugins/throwing
 [0.2.0]: https://github.com/robertomarchioro/goldmarktplace/tree/main/plugins/throwing
 [0.1.1]: https://github.com/robertomarchioro/goldmarktplace/tree/main/plugins/throwing
 [0.1.0]: https://github.com/robertomarchioro/goldmarktplace/tree/main/plugins/throwing

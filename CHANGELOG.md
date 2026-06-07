@@ -10,89 +10,93 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 
 ## [Unreleased]
 
-### Changed
-- `plugins/throwing/skills/savata/SKILL.md` — polish pass on the
-  Payload section after the user introduced a two-line dialect
-  escalation (threat / launch): step 2 now enumerates the two lines
-  explicitly under `Per la minaccia` / `Per il lancio` sub-bullets;
-  redundant inline launch-line removed from the trajectory-frame
-  paragraph; quote style aligned («caporali» + period on both lines);
-  one extra space in the ASCII bottom row so the parabola's apex sits
-  closer to the midpoint between 🩴 and `*`.
+## [0.3.0] - 2026-06-07
+
+This release introduces `savata` as a model-invocable companion skill to
+the existing `/throwing:pigs` command in the `throwing` plugin — an
+ironic, motherly redirect Claude emits when the root of the friction
+sits **upstream of the screen**, not in a mistake of its own. The
+release also covers the documentation surface around it (bilingual
+descriptions, English service door, looping animated SVG for the GitHub
+README) and the polish passes that landed alongside the design.
 
 ### Added
-- `plugins/throwing/skills/savata/README.md` — short English brief
-  acting as a service door into the (Italian) savata artifacts:
-  explains what the skill does, the two gates, the escalation, and
-  why the canonical `SKILL.md` and `COSCIENZA.md` remain in Italian.
-  GitHub auto-renders it when a visitor lands on the skill folder.
-- `plugins/throwing/skills/savata/launch.svg` — looping animated SVG
-  of the slipper-throw (🩴 flies a parabolic arc, S'CIAF! punches in on
-  landing, holds, then the loop restarts every 2.5s), embedded centered
-  in the Companion skill section of the throwing README (one file,
-  referenced from both EN and IT). Pure SMIL, no JS, renders natively
-  in GitHub. The live skill payload keeps the static ASCII frame —
-  markdown output cannot animate, the visual belongs in the docs.
+
+**`throwing` plugin — new skill and assets**
+- `plugins/throwing/skills/savata/SKILL.md` — `/throwing:savata`
+  model-invocable skill, frontmatter `description` bilingual (IT first,
+  EN second anchored on *la chancla*). Gated by two non-negotiable
+  guards (clean hands + cited receipt). Escalation in-context with two
+  dialect lines: threat (*«Varda che te dago 'na savatà.»*) → launch
+  (*«Desso te riva la savatà.»*) plus a small ASCII trajectory frame.
+  v1 is skill-only — no hooks, no network, no file access; the
+  always-on watchfulness lives entirely in the skill's `description`.
+- `plugins/throwing/skills/savata/COSCIENZA.md` — concept companion
+  (the spirit: why the savata exists, when it is invited, how the
+  gates make the freedom safe).
+- `plugins/throwing/skills/savata/README.md` — short English service
+  door (~300 words) for non-Italian readers landing on the skill
+  folder.
+- `plugins/throwing/skills/savata/launch.svg` — looping 2.5s animated
+  SVG of the slipper-throw (🩴 follows a parabolic arc with a tumble,
+  fades out at impact, S'CIAF! punches in), embedded centered in the
+  Companion skill section of the throwing README (one file, two
+  references — EN and IT). Pure SMIL, no JS, renders natively in
+  GitHub.
+
+**Plugin-level CHANGELOG**
+- `plugins/throwing/CHANGELOG.md` — retroactive plugin-level CHANGELOG
+  (entries 0.1.0, 0.1.1, 0.2.0, 0.2.1), harmonizing with `gh-triage`.
+
+### Changed
+
+**`throwing` plugin — version and metadata**
+- `throwing` plugin: 0.1.1 → 0.2.0 (savata added) → 0.2.1 (post-savata
+  polish and assets). See `plugins/throwing/CHANGELOG.md` for
+  per-version detail.
+- Plugin `description` (in `plugin.json` and the marketplace catalog)
+  now describes the **two-component family** (`pigs` + `savata`)
+  rather than just `pigs`.
+
+**`throwing` plugin — README**
+- Intro paragraph rewritten as a family intro (EN + IT) covering both
+  components.
+- `Components` lists both `pigs` (command) and `savata` (skill).
+- New `Companion skill` section (EN + IT) with an inline ethnographic
+  Venetian note grounding the gesture (*savata* = ciabatta, *savatà* =
+  the noun for the blow, the maternal repertoire of *"Vara che me
+  cavo na savata!"* → *"Te dago 'na savatà"*).
+- `Using this in OpenCode` reframed as a standalone
+  `throwing-pigs`-only variant with the no-`savata`-equivalent fact
+  stated structurally (a model-invocable gesture cannot survive in a
+  user-invoked command system).
+- `Disclosure` rewritten to reflect both components.
+
+**`SKILL.md` polish (post-design iterations)**
+- `description` made bilingual (IT first, EN second anchored on
+  *la chancla*).
+- `COSCIENZA.md` §7 corrected: the v1 technical wiring is a **skill**,
+  not a command-file.
+- Payload section step 2 now enumerates the two dialect lines under
+  `Per la minaccia` / `Per il lancio` sub-bullets; quote style aligned
+  («caporali» + final period on both lines); one extra space in the
+  ASCII bottom row for visual symmetry with the parabola apex.
+
+**Root documentation**
+- `README.md` plugins table — `throwing` row updated to reflect the
+  new version and the two-component family description.
+- `PRIVACY.md` — `throwing` entry rewritten for the multi-component
+  state.
 
 ### Fixed
-- `plugins/throwing/skills/savata/SKILL.md` — removed a redundant
+- `plugins/throwing/skills/savata/SKILL.md` — removed redundant
   `name: savata` line from the frontmatter; the explicit `name` was
-  causing the skill to be registered without the plugin namespace
-  prefix (showing up at the prompt as `/savata` instead of
-  `/throwing:savata`). With the directory basename fallback
-  (`savata/`) + plugin namespace (`throwing`), the invocation is now
-  consistently `/throwing:savata`. The pattern now matches both
-  `commands/pigs.md` and `plugins/hello-world/skills/greet/`.
-
-### Added
-- `plugins/throwing/skills/savata/SKILL.md` — new model-invocable skill
-  `/throwing:savata`, the inverse twin of `/throwing:pigs`: an ironic,
-  motherly redirect Claude emits (or the user types) when the root of the
-  friction sits upstream of the screen, not in a mistake of its own. Gated
-  by two non-negotiable guards (clean hands + cited receipt). Escalation
-  is in-context (threat → launch). v1 is skill-only — no hooks, no
-  network, no file access; the always-on watchfulness lives entirely in
-  the skill's frontmatter `description`.
-- `plugins/throwing/skills/savata/COSCIENZA.md` — concept companion
-  documenting the spirit (why the savata exists, when it is invited,
-  how the gates make the freedom safe).
-- `plugins/throwing/CHANGELOG.md` — retroactive plugin-level CHANGELOG
-  (entries 0.1.0, 0.1.1, 0.2.0), harmonizing with `gh-triage`'s
-  plugin-level changelog.
-
-### Changed
-- `throwing` plugin bumped 0.1.1 → 0.2.0 (new component: model-invocable
-  skill alongside the existing user-invoked command). Plugin
-  `description` (in `plugin.json` and the marketplace catalog) and the
-  plugin README intro now describe the **two-component family** (EN + IT)
-  rather than just `pigs`. `Components`, `Disclosure`, and a new
-  `Companion skill` section reflect both components in the plugin README.
-  The `Using this in OpenCode` section has an explicit scope note (savata
-  is model-invocable, no OpenCode equivalent in v1). `PRIVACY.md` throwing
-  entry rewritten for the multi-component state; root `README.md` plugins
-  table updated.
-- `plugins/throwing/skills/savata/SKILL.md` — `description` made bilingual
-  (IT first, EN second anchored on *la chancla*) so the always-on
-  watchfulness is intelligible to non-Italian users without losing the
-  dialect fidelity the gesture is built around.
-- `plugins/throwing/skills/savata/COSCIENZA.md` — §7 corrected: the v1
-  technical wiring is a **skill**, not a command-file (the pre-handoff
-  draft still called it command-file).
-- `plugins/throwing/README.md` — OpenCode section reframed as a
-  standalone artifact in its own right ("OpenCode variant:
-  `throwing-pigs` only" / "Variante OpenCode: solo `throwing-pigs`"),
-  with the no-`savata`-variant fact stated up front and structurally,
-  not as a sidebar. Makes it unambiguous that the OpenCode export is
-  `pigs`-only and that `savata` has no OpenCode counterpart (a
-  model-invocable gesture can't survive in a user-invoked command
-  system).
-- `plugins/throwing/README.md` — inline ethnographic note added to the
-  `Companion skill` section (EN + IT, "Why \"savata\"." / "Perché
-  \"savata\"."): anchors the gesture to the Venetian linguistic
-  tradition — *savata* = ciabatta; *savatà* = the noun for the blow;
-  the maternal repertoire (*"Vara che me cavo na savata!"* →
-  *"Te dago 'na savatà"*) is the household reality the plugin's
-  threat → launch escalation literally transposes.
+  causing the skill to be registered without the `throwing:`
+  namespace prefix (showing up at the prompt as `/savata` instead of
+  `/throwing:savata`). With the directory basename fallback + plugin
+  namespace, the invocation is now consistently `/throwing:savata`,
+  matching the pattern of `plugins/throwing/commands/pigs.md` and
+  `plugins/hello-world/skills/greet/`.
 
 ## [0.2.0] - 2026-06-06
 
@@ -188,6 +192,7 @@ from GitHub via `/plugin marketplace add robertomarchioro/goldmarktplace`.
 
 ---
 
-[Unreleased]: https://github.com/robertomarchioro/goldmarktplace/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/robertomarchioro/goldmarktplace/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/robertomarchioro/goldmarktplace/releases/tag/v0.3.0
 [0.2.0]: https://github.com/robertomarchioro/goldmarktplace/releases/tag/v0.2.0
 [0.1.0]: https://github.com/robertomarchioro/goldmarktplace/releases/tag/v0.1.0
