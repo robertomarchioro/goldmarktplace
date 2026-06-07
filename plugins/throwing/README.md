@@ -85,6 +85,20 @@ emitting an ironic, motherly redirect when it notices the root of the friction
 sits **upstream of the screen**, not in a mistake of its own. Model-invocable
 (Claude can self-trigger), but you can also type `/throwing:savata` directly.
 
+**Why "savata".** In the Venetian language *savata* is "slipper"
+(`ciabatta` in standard Italian), and *savatà* (with the accent) is the
+noun for the act of being hit by one — a slipper-shot. The maternal
+repertoire around that slipper is regional household memory:
+*"Vara che me cavo na savata!"* — the mother sliding her foot out,
+staring you down — and, if that does not land, *"Te dago 'na savatà"*,
+the actual blow. Threat first, throw only sometimes, with the apocryphal
+infallible aim. Always under affection: a quick burn between *you are
+mine* and *you are loved*, no process, no real harm. The plugin
+transposes that dynamic literally: the threat (*"te cavo na savatà"*)
+**is** the first savata; the launch is the second. The in-context
+escalation is not a design abstraction, it is the way a Veneto mother
+actually warns and then, if she has to, lands.
+
 Two non-negotiable gates fire before any savata:
 
 1. **Mani pulite ("clean hands")** — if Claude is the one in the wrong this
@@ -249,6 +263,19 @@ invitato da questo plugin — che emette un redirect ironico e materno quando si
 accorge che la radice dell'attrito sta **a monte del monitor**, non in un
 proprio errore. Model-invocable (Claude può lanciarla da sé), ma puoi anche
 digitare `/throwing:savata` direttamente.
+
+**Perché "savata".** *Savata* è "ciabatta" in lingua veneta, e *savatà*
+(con l'accento) è proprio il sostantivo del colpo: una ciabattata. Il
+repertorio materno attorno a quella ciabatta è memoria di famiglia in
+tutto il Veneto: *"Vara che me cavo na savata!"* — la mamma che si sfila
+la ciabatta fissandoti — e, se non basta, *"Te dago 'na savatà"*, il colpo
+vero. Minaccia prima, lancio solo a volte, con la mira infallibile del
+mito. Sempre dentro l'affetto: una bruciatura veloce tra *sei mio* e *sei
+amato*, niente processo, nessun danno vero. Il plugin riproduce quella
+dinamica alla lettera: la minaccia (*"te cavo na savatà"*) **è** la prima
+savata; il lancio è la seconda. L'escalation in-context non è
+un'astrazione di design, è il modo in cui una mamma veneta avverte
+davvero e poi, se proprio deve, atterra.
 
 Due cancelli non negoziabili prima di qualsiasi savata:
 

@@ -15,6 +15,13 @@ and this plugin adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
   that the OpenCode export covers `pigs` only and that `savata` has no
   OpenCode counterpart (a model-invocable gesture cannot survive in a
   user-invoked command system).
+- README inline ethnographic note added to the `Companion skill` section
+  (EN + IT, "Why \"savata\"." / "Perché \"savata\"."): anchors the
+  gesture to the Venetian linguistic tradition — *savata* = ciabatta;
+  *savatà* = the noun for the blow; the maternal repertoire
+  (*"Vara che me cavo na savata!"* → *"Te dago 'na savatà"*) is the
+  household reality the plugin's threat → launch escalation literally
+  transposes.
 
 ## [0.2.0] - 2026-06-07
 

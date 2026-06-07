@@ -52,6 +52,13 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
   `pigs`-only and that `savata` has no OpenCode counterpart (a
   model-invocable gesture can't survive in a user-invoked command
   system).
+- `plugins/throwing/README.md` — inline ethnographic note added to the
+  `Companion skill` section (EN + IT, "Why \"savata\"." / "Perché
+  \"savata\"."): anchors the gesture to the Venetian linguistic
+  tradition — *savata* = ciabatta; *savatà* = the noun for the blow;
+  the maternal repertoire (*"Vara che me cavo na savata!"* →
+  *"Te dago 'na savatà"*) is the household reality the plugin's
+  threat → launch escalation literally transposes.
 
 ## [0.2.0] - 2026-06-06
 
