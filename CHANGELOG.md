@@ -11,6 +11,11 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 ## [Unreleased]
 
 ### Added
+- `plugins/throwing/skills/savata/README.md` — short English brief
+  acting as a service door into the (Italian) savata artifacts:
+  explains what the skill does, the two gates, the escalation, and
+  why the canonical `SKILL.md` and `COSCIENZA.md` remain in Italian.
+  GitHub auto-renders it when a visitor lands on the skill folder.
 - `plugins/throwing/skills/savata/launch.svg` — looping animated SVG
   of the slipper-throw (🩴 flies a parabolic arc, S'CIAF! punches in on
   landing, holds, then the loop restarts every 2.5s), embedded centered

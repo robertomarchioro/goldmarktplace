@@ -8,6 +8,14 @@ and this plugin adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
+- `skills/savata/README.md` — short English brief acting as a
+  service door into the (Italian) savata artifacts. Covers what the
+  skill is, the two gates, the in-context escalation, and explicitly
+  states why the canonical `SKILL.md` and `COSCIENZA.md` stay in
+  Italian (the gesture is Venetian; *cancelli*, *scontrino*, *porte*
+  and the dialect line carry register the translation would lose).
+  GitHub auto-renders it when a visitor lands on the skill folder.
+  Touches no Italian artifact.
 - `skills/savata/launch.svg` — looping animated SVG of the
   slipper-throw, embedded centered in the Companion skill section of the
   README (referenced from both EN and IT — one file, two references).
