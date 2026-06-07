@@ -7,6 +7,24 @@ and this plugin adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+- `skills/savata/SKILL.md` — polish pass on the Payload section after
+  the user-authored two-line escalation update (threat:
+  *«Varda che te dago 'na savatà.»* / launch:
+  *«Desso te riva la savatà.»*):
+  - Step 2 now enumerates the two dialect lines explicitly under
+    `Per la minaccia` and `Per il lancio` sub-bullets (the previous
+    "Definitiva:" label became misleading after a second line was
+    added).
+  - Removed the redundant inline launch-line repetition from the
+    paragraph that introduces the ASCII trajectory frame; the single
+    source of truth for both lines is now step 2.
+  - Quote style aligned: both lines use «caporali» with a final
+    period (the launch line was in straight quotes without a period).
+  - ASCII bottom row: one extra space before `*` so the parabola's
+    apex sits closer to the midpoint between 🩴 (launch) and `*`
+    (impact).
+
 ### Added
 - `skills/savata/README.md` — short English brief acting as a
   service door into the (Italian) savata artifacts. Covers what the

@@ -10,6 +10,16 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 
 ## [Unreleased]
 
+### Changed
+- `plugins/throwing/skills/savata/SKILL.md` — polish pass on the
+  Payload section after the user introduced a two-line dialect
+  escalation (threat / launch): step 2 now enumerates the two lines
+  explicitly under `Per la minaccia` / `Per il lancio` sub-bullets;
+  redundant inline launch-line removed from the trajectory-frame
+  paragraph; quote style aligned («caporali» + period on both lines);
+  one extra space in the ASCII bottom row so the parabola's apex sits
+  closer to the midpoint between 🩴 and `*`.
+
 ### Added
 - `plugins/throwing/skills/savata/README.md` — short English brief
   acting as a service door into the (Italian) savata artifacts:
