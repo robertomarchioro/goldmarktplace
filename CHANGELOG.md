@@ -11,13 +11,13 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 ## [Unreleased]
 
 ### Added
-- `plugins/throwing/skills/savata/launch.svg` — one-shot animated SVG
+- `plugins/throwing/skills/savata/launch.svg` — looping animated SVG
   of the slipper-throw (🩴 flies a parabolic arc, S'CIAF! punches in on
-  landing), embedded centered in the Companion skill section of the
-  throwing README (one file, referenced from both EN and IT). Pure
-  SMIL, no JS, renders natively in GitHub. The live skill payload keeps
-  the static ASCII frame — markdown output cannot animate, the visual
-  belongs in the docs.
+  landing, holds, then the loop restarts every 2.5s), embedded centered
+  in the Companion skill section of the throwing README (one file,
+  referenced from both EN and IT). Pure SMIL, no JS, renders natively
+  in GitHub. The live skill payload keeps the static ASCII frame —
+  markdown output cannot animate, the visual belongs in the docs.
 
 ### Fixed
 - `plugins/throwing/skills/savata/SKILL.md` — removed a redundant
