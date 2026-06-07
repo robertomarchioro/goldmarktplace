@@ -25,6 +25,10 @@ entirely around this.
 - **Command** — `/throwing:pigs` — flips Claude into cool-down mode for the
   remainder of the session. User-invoked only
   (`disable-model-invocation: true`), so Claude never triggers it on its own.
+- **Skill** — `/throwing:savata` — the inverse: model-invocable (and
+  user-typable) redirect Claude emits when the friction comes from upstream
+  of the screen, not from a mistake of its own. Ironic, motherly tone — never
+  an accusation. Details below.
 
 ## When to use it
 
@@ -65,6 +69,38 @@ For the rest of the session Claude will:
 - Confirm before any destructive or scope-expanding action.
 - Cut defensive phrasing, apology theater, and "while I'm at it" detours.
 
+## Companion skill: `/throwing:savata`
+
+`savata` is the inverse twin of `pigs`. Where `pigs` is the user telling Claude
+"slow down", `savata` is Claude — only when invited explicitly by this plugin —
+emitting an ironic, motherly redirect when it notices the root of the friction
+sits **upstream of the screen**, not in a mistake of its own. Model-invocable
+(Claude can self-trigger), but you can also type `/throwing:savata` directly.
+
+Two non-negotiable gates fire before any savata:
+
+1. **Mani pulite ("clean hands")** — if Claude is the one in the wrong this
+   turn (loop, hallucination, sloppiness), no savata: Claude fixes itself
+   first.
+2. **Scontrino ("receipt")** — Claude must be able to cite the upstream
+   evidence verbatim. No receipt = no savata.
+
+Escalation is in-context: first time = a (motherly) threat; second time on the
+same friction = the launch. Tone is always motherly — sharp but never spiteful.
+After thirty seconds, back to work together.
+
+**v1 design note.** `savata` is implemented purely as a skill — no hooks. The
+always-on watchfulness lives entirely in the skill's `description` (always in
+context). This preserves the plugin's purity: no hooks, no network, no file
+access. A v2 may add an optional `UserPromptSubmit` hook for deterministic
+red-line pre-screening; it would be opt-in and clearly disclosed.
+
+Details and the operating consciousness:
+- [`skills/savata/SKILL.md`](./skills/savata/SKILL.md) — the operating manual.
+- [`skills/savata/COSCIENZA.md`](./skills/savata/COSCIENZA.md) — the spirit
+  (why the savata exists, when it is invited, how the gates make the freedom
+  safe).
+
 ## Using this in OpenCode
 
 This is a Claude Code plugin, but the command is just a portable prompt — it
@@ -95,7 +131,10 @@ sycophancy, escalation ladder — is agent-agnostic.
 ## Disclosure
 
 This plugin makes **no network calls**, registers **no hooks**, and reads **no
-files**. It is a single command-file definition.
+files**. It ships one user-invoked command (`pigs`) and one model-invocable
+skill (`savata`); both are pure in-context prompt engineering. The skill's
+always-on watchfulness lives in its frontmatter `description`, which is the
+only part Claude keeps in context by default.
 
 ## License
 
@@ -130,6 +169,10 @@ incanalare quella frustrazione in un cool-down. Il nome del plugin
 - **Command** — `/throwing:pigs` — attiva la modalità cool-down per il resto
   della sessione. Solo user-invoked (`disable-model-invocation: true`): Claude
   non lo attiva mai da solo.
+- **Skill** — `/throwing:savata` — il vettore inverso: redirect
+  model-invocable (digitabile anche dall'utente) che Claude emette quando si
+  accorge che la radice dell'attrito sta a monte del monitor, non in un proprio
+  errore. Tono ironico e materno — mai un'accusa. Dettagli sotto.
 
 ### Quando usarlo
 
@@ -171,6 +214,39 @@ Per il resto della sessione Claude:
 - Conferma prima di azioni distruttive o di espansione di scope.
 - Taglia fraseggio difensivo, apology theater e divagazioni "già che ci sono".
 
+### Skill companion: `/throwing:savata`
+
+`savata` è il gemello inverso di `pigs`. Dove `pigs` è l'utente che dice a
+Claude "datti una regolata", `savata` è Claude — solo quando esplicitamente
+invitato da questo plugin — che emette un redirect ironico e materno quando si
+accorge che la radice dell'attrito sta **a monte del monitor**, non in un
+proprio errore. Model-invocable (Claude può lanciarla da sé), ma puoi anche
+digitare `/throwing:savata` direttamente.
+
+Due cancelli non negoziabili prima di qualsiasi savata:
+
+1. **Mani pulite** — se in questo scambio Claude sta sbagliando lui (loop,
+   allucinazione, sciatteria), niente savata: prima si sistema.
+2. **Scontrino** — Claude deve poter citare la prova a monte, testuale.
+   Niente ricevuta = niente savata.
+
+L'escalation vive nel contesto: la prima volta è una minaccia (materna), la
+seconda sullo stesso attrito è il lancio. Il tono è sempre materno — secco ma
+mai astioso. Dopo trenta secondi si torna a lavorare insieme.
+
+**Nota di design v1.** `savata` è implementata puramente come skill — niente
+hook. La sorveglianza always-on vive interamente nella `description` della
+skill (sempre in contesto). Mantiene la purezza del plugin: niente hook, niente
+rete, niente accesso ai file. Una v2 potrà aggiungere un hook opzionale
+`UserPromptSubmit` per il pre-screening deterministico delle righe rosse;
+sarebbe opt-in e dichiarato esplicitamente.
+
+Dettagli e coscienza operativa:
+- [`skills/savata/SKILL.md`](./skills/savata/SKILL.md) — il manuale operativo.
+- [`skills/savata/COSCIENZA.md`](./skills/savata/COSCIENZA.md) — lo spirito
+  (perché esiste la savata, quando è invitata, come i cancelli rendono la
+  libertà sicura).
+
 ### Usarlo in OpenCode
 
 Questo è un plugin Claude Code, ma il comando è solo un prompt portabile —
@@ -202,7 +278,10 @@ all'agente.
 ### Disclosure
 
 Il plugin **non fa chiamate di rete**, **non registra hook** e **non legge
-file**. È una singola definizione di command.
+file**. Spedisce un command user-invoked (`pigs`) e una skill model-invocable
+(`savata`); entrambi sono pure prompt engineering in-context. La sorveglianza
+always-on della skill vive nella `description` del frontmatter, che è l'unica
+parte che Claude tiene in contesto by default.
 
 ### Licenza
 

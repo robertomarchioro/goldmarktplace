@@ -35,12 +35,13 @@ exactly what it does. Current state:
 - Reads no files.
 - Single static skill definition (`/hello-world:greet`).
 
-### `throwing` 0.1.1
+### `throwing` 0.2.0
 - Makes no network calls.
 - Registers no hooks.
 - Reads no files.
-- Single user-invoked command (`/throwing:pigs`,
-  `disable-model-invocation: true`); pure in-context prompt engineering.
+- Ships one user-invoked command (`/throwing:pigs`,
+  `disable-model-invocation: true`) and one model-invocable skill
+  (`/throwing:savata`); both are pure in-context prompt engineering.
 
 ### `gh-triage` 0.1.0
 - Makes **no network calls of its own**.
@@ -120,9 +121,10 @@ Stato attuale:
 
 - **`hello-world`** 0.1.0 — nessuna chiamata di rete, nessun hook,
   nessuna lettura di file. Singola skill statica.
-- **`throwing`** 0.1.1 — nessuna chiamata di rete, nessun hook, nessuna
-  lettura di file. Singolo command user-invoked
-  (`disable-model-invocation: true`); pure prompt engineering in-context.
+- **`throwing`** 0.2.0 — nessuna chiamata di rete, nessun hook, nessuna
+  lettura di file. Spedisce un command user-invoked (`/throwing:pigs`,
+  `disable-model-invocation: true`) e una skill model-invocable
+  (`/throwing:savata`); entrambi sono pure prompt engineering in-context.
 - **`gh-triage`** 0.1.0 — **nessuna chiamata di rete di propria iniziativa**;
   usa la `gh` CLI locale dell'utente (già autenticata) per leggere le issue
   e per eseguire operazioni su issue, label, milestone, branch e PR sul

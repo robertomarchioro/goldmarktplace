@@ -10,6 +10,26 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 
 ## [Unreleased]
 
+### Added
+- `plugins/throwing/skills/savata/SKILL.md` — new model-invocable skill
+  `/throwing:savata`, the inverse twin of `/throwing:pigs`: an ironic,
+  motherly redirect Claude emits (or the user types) when the root of the
+  friction sits upstream of the screen, not in a mistake of its own. Gated
+  by two non-negotiable guards (clean hands + cited receipt). Escalation
+  is in-context (threat → launch). v1 is skill-only — no hooks, no
+  network, no file access; the always-on watchfulness lives entirely in
+  the skill's frontmatter `description`.
+- `plugins/throwing/skills/savata/COSCIENZA.md` — concept companion
+  documenting the spirit (why the savata exists, when it is invited,
+  how the gates make the freedom safe).
+
+### Changed
+- `throwing` plugin bumped 0.1.1 → 0.2.0 (new component: model-invocable
+  skill alongside the existing user-invoked command). `plugins/throwing/.claude-plugin/plugin.json`,
+  `.claude-plugin/marketplace.json`, `PRIVACY.md`, and the root
+  `README.md` plugins table all updated; `Components` and `Disclosure`
+  sections of the plugin README now describe both components (EN + IT).
+
 ## [0.2.0] - 2026-06-06
 
 This release adds the `gh-triage` plugin, an OpenCode-compatible variant of
