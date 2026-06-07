@@ -21,7 +21,7 @@
     {
       "name": "throwing",
       "source": "./plugins/throwing",
-      "description": "User-invoked 'cool down' signal: tells Claude the user is frustrated and to tighten execution discipline for the rest of the session.",
+      "description": "Two paired tools for friction in a Claude Code session: /throwing:pigs (user-invoked cool-down when Claude has made a mistake) and /throwing:savata (model-invocable inverse — a motherly redirect Claude emits when the friction comes from upstream of the screen, not from a mistake of its own).",
       "version": "0.2.0",
       "author": {
         "name": "Roberto Marchioro"

@@ -200,9 +200,11 @@ lì il gesto ha un significato preciso da rendere visibile.
 - Vive nel contesto **personale** dell'utente. Un'AI che dice all'utente "è colpa tua" è un
   trust-killer in contesto enterprise/regolato: **questa savata non si punta mai
   addosso a un utente che non sia chi l'ha invitata.**
-- Il **wiring tecnico** è separato da questo documento: disposizione always-on,
-  command-file `/throwing:savata` (`disable-model-invocation: false`), gestione
-  dello stato di escalation. → handoff Claude Code, in un secondo momento.
+- Il **wiring tecnico** è separato da questo documento: disposizione always-on
+  (la `description` della skill), `skills/savata/SKILL.md` come manuale
+  operativo, escalation in-context. La forma scelta è una **skill**
+  model-invocable (`disable-model-invocation: false` implicito) — non un
+  command-file. → handoff Claude Code, eseguito.
 
 ---
 

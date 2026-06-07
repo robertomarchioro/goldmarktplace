@@ -1,9 +1,17 @@
 # throwing
 
-A user-invoked "cool down" signal for Claude Code: when you are frustrated by a
-recent mistake, type `/throwing:pigs` and Claude will tighten execution
-discipline for the rest of the session — smaller turns, more verification,
-calmer phrasing, no scope expansion.
+Two paired tools for friction in a Claude Code session.
+
+- **`/throwing:pigs`** is what you type when you are frustrated by a mistake
+  of Claude's: Claude tightens execution discipline for the rest of the
+  session — smaller turns, more verification, calmer phrasing, no scope
+  expansion.
+- **`/throwing:savata`** is the inverse, model-invocable: Claude emits an
+  ironic, motherly redirect when it notices the root of the friction sits
+  **upstream of the screen**, not in a mistake of its own. Always gated by
+  two strict guards (clean hands + cited receipt).
+
+Same purity for both: no hooks, no network calls, no file access.
 
 ## Why "throwing pigs"?
 
@@ -103,10 +111,14 @@ Details and the operating consciousness:
 
 ## Using this in OpenCode
 
-This is a Claude Code plugin, but the command is just a portable prompt — it
-works in [OpenCode](https://opencode.ai) too. OpenCode does not install Claude
-Code marketplaces, so drop the ready-made variant into your OpenCode commands
+The `pigs` half of this plugin is just a portable prompt — it works in
+[OpenCode](https://opencode.ai) too. OpenCode does not install Claude Code
+marketplaces, so drop the ready-made variant into your OpenCode commands
 directory with one command.
+
+> **Scope note.** This section applies to `/throwing:pigs` only.
+> `/throwing:savata` is model-invocable, and OpenCode commands are always
+> user-invoked, so there is no OpenCode equivalent in v1.
 
 Global (every project):
 
@@ -144,10 +156,19 @@ only part Claude keeps in context by default.
 
 ## 🇮🇹 Italiano
 
-Segnale "cool down" da invocare quando sei frustrato da un errore recente di
-Claude Code: digita `/throwing:pigs` e Claude stringe la disciplina di
-esecuzione per il resto della sessione — turni più piccoli, più verifica, tono
-più calmo, niente espansione di scope.
+Due gesti accoppiati per gli attriti di una sessione Claude Code.
+
+- **`/throwing:pigs`** è quello che digiti quando sei frustrato da un errore
+  di Claude: Claude stringe la disciplina di esecuzione per il resto della
+  sessione — turni più piccoli, più verifica, tono più calmo, niente
+  espansione di scope.
+- **`/throwing:savata`** è l'inverso, model-invocable: Claude emette un
+  redirect ironico e materno quando si accorge che la radice dell'attrito sta
+  **a monte del monitor**, non in un suo errore. Sempre vincolato da due
+  cancelli rigidi (mani pulite + scontrino citabile).
+
+Stessa purezza per entrambi: niente hook, niente chiamate di rete, niente
+accesso ai file.
 
 ### Perché "throwing pigs"
 
@@ -249,10 +270,14 @@ Dettagli e coscienza operativa:
 
 ### Usarlo in OpenCode
 
-Questo è un plugin Claude Code, ma il comando è solo un prompt portabile —
-funziona anche in [OpenCode](https://opencode.ai). OpenCode non installa i
-marketplace di Claude Code, quindi metti la variante già pronta nella tua
-cartella command di OpenCode con un solo comando.
+La metà `pigs` di questo plugin è solo un prompt portabile — funziona anche in
+[OpenCode](https://opencode.ai). OpenCode non installa i marketplace di Claude
+Code, quindi metti la variante già pronta nella tua cartella command di
+OpenCode con un solo comando.
+
+> **Nota di scope.** Questa sezione vale solo per `/throwing:pigs`.
+> `/throwing:savata` è model-invocable e i command di OpenCode sono sempre
+> user-invoked, quindi in v1 non c'è un equivalente OpenCode.
 
 Globale (tutti i progetti):
 

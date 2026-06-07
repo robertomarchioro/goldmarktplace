@@ -22,13 +22,28 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 - `plugins/throwing/skills/savata/COSCIENZA.md` — concept companion
   documenting the spirit (why the savata exists, when it is invited,
   how the gates make the freedom safe).
+- `plugins/throwing/CHANGELOG.md` — retroactive plugin-level CHANGELOG
+  (entries 0.1.0, 0.1.1, 0.2.0), harmonizing with `gh-triage`'s
+  plugin-level changelog.
 
 ### Changed
 - `throwing` plugin bumped 0.1.1 → 0.2.0 (new component: model-invocable
-  skill alongside the existing user-invoked command). `plugins/throwing/.claude-plugin/plugin.json`,
-  `.claude-plugin/marketplace.json`, `PRIVACY.md`, and the root
-  `README.md` plugins table all updated; `Components` and `Disclosure`
-  sections of the plugin README now describe both components (EN + IT).
+  skill alongside the existing user-invoked command). Plugin
+  `description` (in `plugin.json` and the marketplace catalog) and the
+  plugin README intro now describe the **two-component family** (EN + IT)
+  rather than just `pigs`. `Components`, `Disclosure`, and a new
+  `Companion skill` section reflect both components in the plugin README.
+  The `Using this in OpenCode` section has an explicit scope note (savata
+  is model-invocable, no OpenCode equivalent in v1). `PRIVACY.md` throwing
+  entry rewritten for the multi-component state; root `README.md` plugins
+  table updated.
+- `plugins/throwing/skills/savata/SKILL.md` — `description` made bilingual
+  (IT first, EN second anchored on *la chancla*) so the always-on
+  watchfulness is intelligible to non-Italian users without losing the
+  dialect fidelity the gesture is built around.
+- `plugins/throwing/skills/savata/COSCIENZA.md` — §7 corrected: the v1
+  technical wiring is a **skill**, not a command-file (the pre-handoff
+  draft still called it command-file).
 
 ## [0.2.0] - 2026-06-06
 

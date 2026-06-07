@@ -10,6 +10,17 @@ description: >-
   dall'utente. Prima di lanciarla attraversa SEMPRE due cancelli: mani pulite
   (non stai sbagliando tu) e scontrino (prova citabile). Dettagli operativi —
   gradiente, righe rosse DEFCON, escalation, payload — nel corpo.
+
+  EN — same idea, the cross-cultural anchor is la chancla. Invoke this when you
+  notice the root of the friction sits upstream of the screen, NOT in a mistake
+  of your own — the user shifts the spec then blames the result, demands a
+  target never stated, under-specifies and resents the gap, repeats a vague
+  request blaming the tool, skips diagnosis, or asks you to lie or to skip
+  verification on irreversible actions. An ironic, motherly redirect (never an
+  accusation), invited explicitly by the user. Two non-negotiable gates first:
+  clean hands (you are not the one in the wrong this turn) and receipt (you can
+  cite the upstream evidence verbatim). Operational details — gradient, DEFCON
+  red lines, escalation, payload — in the body.
 ---
 
 # /throwing:savata — la coscienza operativa
