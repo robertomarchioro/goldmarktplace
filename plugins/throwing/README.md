@@ -109,18 +109,24 @@ Details and the operating consciousness:
   (why the savata exists, when it is invited, how the gates make the freedom
   safe).
 
-## Using this in OpenCode
+## OpenCode variant: `throwing-pigs` only
 
-The `pigs` half of this plugin is just a portable prompt — it works in
-[OpenCode](https://opencode.ai) too. OpenCode does not install Claude Code
-marketplaces, so drop the ready-made variant into your OpenCode commands
-directory with one command.
+This is the only part of `throwing` that exists outside Claude Code, and it
+is a separate artifact, not a plugin install.
 
-> **Scope note.** This section applies to `/throwing:pigs` only.
-> `/throwing:savata` is model-invocable, and OpenCode commands are always
-> user-invoked, so there is no OpenCode equivalent in v1.
+`/throwing:pigs` is just a portable prompt, so we ship an OpenCode-format
+variant of it at [`opencode/throwing-pigs.md`](./opencode/throwing-pigs.md)
+for users of [OpenCode](https://opencode.ai) — a different agent with a
+different plugin/command system. OpenCode does not install Claude Code
+marketplaces, so this is a copy-paste workflow (not a `/plugin install`).
 
-Global (every project):
+> **No `savata` variant, and there will not be one without a different
+> design.** `/throwing:savata` is model-invocable, and OpenCode commands
+> are always user-invoked. The savata gesture depends on Claude
+> *self-noticing* the friction and emitting the redirect; without a
+> model-invocable hook, there is nothing for an OpenCode command to do.
+
+Install in OpenCode — global (every project):
 
 ```bash
 mkdir -p ~/.config/opencode/command && curl -fsSL https://raw.githubusercontent.com/robertomarchioro/goldmarktplace/main/plugins/throwing/opencode/throwing-pigs.md -o ~/.config/opencode/command/throwing-pigs.md
@@ -268,18 +274,25 @@ Dettagli e coscienza operativa:
   (perché esiste la savata, quando è invitata, come i cancelli rendono la
   libertà sicura).
 
-### Usarlo in OpenCode
+### Variante OpenCode: solo `throwing-pigs`
 
-La metà `pigs` di questo plugin è solo un prompt portabile — funziona anche in
-[OpenCode](https://opencode.ai). OpenCode non installa i marketplace di Claude
-Code, quindi metti la variante già pronta nella tua cartella command di
-OpenCode con un solo comando.
+Questa è l'unica parte di `throwing` che esiste fuori da Claude Code, ed è un
+artefatto a sé, non un'installazione di plugin.
 
-> **Nota di scope.** Questa sezione vale solo per `/throwing:pigs`.
-> `/throwing:savata` è model-invocable e i command di OpenCode sono sempre
-> user-invoked, quindi in v1 non c'è un equivalente OpenCode.
+`/throwing:pigs` è solo un prompt portabile, quindi spediamo una variante in
+formato OpenCode del prompt in
+[`opencode/throwing-pigs.md`](./opencode/throwing-pigs.md) per gli utenti di
+[OpenCode](https://opencode.ai) — un agente diverso con un sistema di
+plugin/command diverso. OpenCode non installa i marketplace di Claude Code,
+quindi è un flusso copy-paste (non un `/plugin install`).
 
-Globale (tutti i progetti):
+> **Niente variante `savata`, e non ce ne sarà una senza un design diverso.**
+> `/throwing:savata` è model-invocable, e i command di OpenCode sono sempre
+> user-invoked. Il gesto della savata dipende dal fatto che Claude *si
+> accorga da sé* dell'attrito e lo emetta; senza un hook model-invocable,
+> non c'è niente che un command OpenCode possa fare.
+
+Installazione in OpenCode — globale (tutti i progetti):
 
 ```bash
 mkdir -p ~/.config/opencode/command && curl -fsSL https://raw.githubusercontent.com/robertomarchioro/goldmarktplace/main/plugins/throwing/opencode/throwing-pigs.md -o ~/.config/opencode/command/throwing-pigs.md

@@ -7,6 +7,15 @@ and this plugin adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+- README OpenCode section reframed as a standalone artifact in its own
+  right ("OpenCode variant: `throwing-pigs` only" / "Variante OpenCode:
+  solo `throwing-pigs`"), with the no-`savata`-variant fact stated up
+  front and structurally rather than as a sidebar. Makes it unambiguous
+  that the OpenCode export covers `pigs` only and that `savata` has no
+  OpenCode counterpart (a model-invocable gesture cannot survive in a
+  user-invoked command system).
+
 ## [0.2.0] - 2026-06-07
 
 Adds the model-invocable inverse of `/throwing:pigs`. The plugin is now a

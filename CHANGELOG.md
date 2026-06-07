@@ -44,6 +44,14 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 - `plugins/throwing/skills/savata/COSCIENZA.md` — §7 corrected: the v1
   technical wiring is a **skill**, not a command-file (the pre-handoff
   draft still called it command-file).
+- `plugins/throwing/README.md` — OpenCode section reframed as a
+  standalone artifact in its own right ("OpenCode variant:
+  `throwing-pigs` only" / "Variante OpenCode: solo `throwing-pigs`"),
+  with the no-`savata`-variant fact stated up front and structurally,
+  not as a sidebar. Makes it unambiguous that the OpenCode export is
+  `pigs`-only and that `savata` has no OpenCode counterpart (a
+  model-invocable gesture can't survive in a user-invoked command
+  system).
 
 ## [0.2.0] - 2026-06-06
 
