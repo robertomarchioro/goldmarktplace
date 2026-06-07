@@ -10,6 +10,16 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 
 ## [Unreleased]
 
+### Fixed
+- `plugins/throwing/skills/savata/SKILL.md` — removed a redundant
+  `name: savata` line from the frontmatter; the explicit `name` was
+  causing the skill to be registered without the plugin namespace
+  prefix (showing up at the prompt as `/savata` instead of
+  `/throwing:savata`). With the directory basename fallback
+  (`savata/`) + plugin namespace (`throwing`), the invocation is now
+  consistently `/throwing:savata`. The pattern now matches both
+  `commands/pigs.md` and `plugins/hello-world/skills/greet/`.
+
 ### Added
 - `plugins/throwing/skills/savata/SKILL.md` — new model-invocable skill
   `/throwing:savata`, the inverse twin of `/throwing:pigs`: an ironic,

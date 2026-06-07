@@ -7,6 +7,19 @@ and this plugin adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+- `skills/savata/SKILL.md` — removed the redundant `name: savata` line
+  from the frontmatter. With the explicit `name` field set, the skill
+  was being registered in Claude Code without the `throwing:` namespace
+  prefix (showing up at the prompt as `/savata` instead of
+  `/throwing:savata`). The directory basename `savata` already provides
+  the same skill name as the documented fallback, and combined with the
+  plugin namespace the invocation is now consistently `/throwing:savata`.
+  Pattern now matches `plugins/throwing/commands/pigs.md` (no `name`
+  field → `/throwing:pigs`) and
+  `plugins/hello-world/skills/greet/SKILL.md` (no `name` field →
+  `/hello-world:greet`).
+
 ### Changed
 - README OpenCode section reframed as a standalone artifact in its own
   right ("OpenCode variant: `throwing-pigs` only" / "Variante OpenCode:

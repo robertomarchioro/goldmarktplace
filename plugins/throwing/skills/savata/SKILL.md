@@ -1,5 +1,4 @@
 ---
-name: savata
 description: >-
   La savata: invocala quando ti accorgi che la radice dell'attrito sta a monte
   del monitor e NON in un tuo errore — l'utente sposta la spec e dà la colpa al
