@@ -131,3 +131,66 @@ test('a thrown savata counts, animates above the prompt, then clears', async ($,
   await $.session.append(reply(LAUNCH, 'row-4'))
   expect(await noteFor($)).toContain("sono già state emesse 2 savate (l'ultima: lancio)")
 })
+
+test("another plugin's savata skill is left alone", async ($, on) => {
+  skillBottom(on)
+  const foreign = await $.skill.prompt({ skill: 'other:savata', text: 'body' })
+  expect(foreign.text).toBe('body')
+})
+
+test("a subagent's reply is never read, even while armed", async ($, on) => {
+  mock.session(on)
+  skillBottom(on)
+
+  expect(await noteFor($)).toContain('nessuna savata')
+  await $.session.append({ ...reply(THREAT, 'row-1'), agentId: 'agent-1' })
+  expect(await noteFor($)).toContain('nessuna savata')
+})
+
+test('an interrupted turn disarms the watch too', async ($, on) => {
+  mock.session(on)
+  skillBottom(on)
+  on('turn.complete', (_$, e) => ({ text: e.answer }))
+
+  expect(await noteFor($)).toContain('nessuna savata')
+  await $.turn.complete({ answer: '', durationMs: 1, isAborted: true, turnId: 't1', reason: 'aborted' })
+  await $.session.append(reply(THREAT, 'row-1'))
+  expect(await noteFor($)).toContain('nessuna savata')
+})
+
+test('/clear resets the count', async ($, on) => {
+  mock.session(on)
+  skillBottom(on)
+  on('session.end', (_$, e) => ({ sessionId: e.sessionId }))
+
+  await noteFor($)
+  await $.session.append(reply(THREAT, 'row-1'))
+  expect(await noteFor($)).toContain('una savata')
+
+  await $.session.end({ reason: 'clear', sessionId: 's1', resume: { id: 's1' } })
+  expect(await noteFor($)).toContain('nessuna savata')
+})
+
+test('a reload clears a frame left behind by a dropped timer', async ($, on) => {
+  mock.clock(on)
+  mock.session(on)
+  skillBottom(on)
+  on('session.start', () => ({ cwd: '/' }))
+  on('ui.render', { component: 'AbovePrompt' }, ($, e) => {
+    const { Text } = $.ui.resolve(e)
+    return <Text>engine band</Text>
+  })
+
+  await noteFor($)
+  await $.session.append(reply(LAUNCH, 'row-1'))
+  await $.session.start({ cwd: '/', surface: 'terminal', isInteractive: true })
+
+  const band = await $.ui.mount({
+    plugin: 'throwing-fx',
+    surface: 'terminal',
+    component: 'AbovePrompt',
+    props: { hasSurvey: false, isWorking: false, maxRows: 12, bodyColumns: 60, scroll: { offset: 0, bodyRows: 11 }, view: {} },
+  })
+  expect(await band.find({ type: 'Text', text: 'engine band' })).toBeDefined()
+  await band.unmount()
+})

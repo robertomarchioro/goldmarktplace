@@ -3,7 +3,7 @@ import type { EngineInterface, Register, Timer } from 'claude-code'
 
 import type { SavataKind, SavataShow } from '../types'
 import { DIALECT_LINES, FRAME_MS, frameCount, frameFor } from './frames'
-import { EMPTY_TALLY, escalationNote, isSavataSkill, thrownKindIn } from './savata'
+import { EMPTY_TALLY, escalationNote, thrownKindIn } from './savata'
 
 const tally = atom({ plugin: 'throwing-fx', key: 'tally' } as const, EMPTY_TALLY)
 const show = atom({ plugin: 'throwing-fx', key: 'show' } as const, null)
@@ -15,15 +15,20 @@ const isArmed = atom({ plugin: 'throwing-fx', key: 'isArmed' } as const, false)
 let animation: Timer | undefined
 
 export const register: Register = on => {
+  // A reload drops the animation's timer but not its frame in session state:
+  // clear it so the band does not keep a frozen frame.
+  on('session.start', async ($, e, next) => {
+    await update($, show, () => null)
+
+    return next(e)
+  })
+
   // The skill is read before the model weighs its two gates, so this only
   // tells it where the escalation stands and arms the reply watch; nothing
   // is drawn yet.
-  on('skill.prompt', async ($, e, next) => {
+  // The throwing plugin's skill as Claude Code names it, or bare; no other.
+  on('skill.prompt', { skill: /^(throwing:)?savata$/ }, async ($, e, next) => {
     const computed = await next(e)
-    if (!isSavataSkill(e.skill)) {
-      return computed
-    }
-
     await update($, isArmed, () => true)
     return { text: `${computed.text}\n\n${escalationNote(await read($, tally))}` }
   })

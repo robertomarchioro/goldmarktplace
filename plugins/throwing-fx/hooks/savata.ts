@@ -8,9 +8,6 @@ const THREAT_MARK = /te dago ['’]na savat/i
 
 export const EMPTY_TALLY: SavataTally = { count: 0, last: null }
 
-export function isSavataSkill(skill: string): boolean {
-  return skill === 'savata' || skill.endsWith(':savata')
-}
 
 // A savata counts as thrown only when the reply opens with the slipper and
 // carries one of the two dialect lines: quoting the lines while discussing

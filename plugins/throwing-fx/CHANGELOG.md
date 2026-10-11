@@ -24,8 +24,12 @@ First release of `throwing-fx`, an optional companion to the `throwing` plugin.
   `/clear` resets it.
 - **Gated reply watch**: replies are read only between a `/throwing:savata`
   invocation and the end of that turn, main conversation only.
-- Test suite for `claude plugin test` (frames, detection, escalation note,
-  gating, band drawing).
+- `skill.prompt` hook narrowed by its matcher to `throwing:savata` (or a bare
+  `savata`): no other skill's prompt reaches it.
+- A reload clears any frame its dropped timer left in the band.
+- Test suite for `claude plugin test` (13 tests: frames, detection,
+  escalation note, gating, subagent replies, interrupted turns, `/clear`,
+  reload, band drawing).
 
 ### Notes
 

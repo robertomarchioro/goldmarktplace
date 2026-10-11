@@ -43,7 +43,8 @@ erase. With it, the skill's prompt carries the session's own count.
 
 | Hook | What it does |
 | :--- | :--- |
-| `skill.prompt` | When `/throwing:savata` is invoked, appends the session's savata count to the skill's prompt and **arms** the reply watch. Every other skill passes through untouched. |
+| `session.start` | Clears a frame a reload may have left behind. |
+| `skill.prompt` (only `throwing:savata`) | When the savata is invoked, appends the session's savata count to its prompt and **arms** the reply watch. Its matcher selects that one skill: no other skill's prompt ever reaches the hook. |
 | `session.append` (responses) | **Only while armed**: checks whether the model's reply opens with 🩴 and carries one of the two dialect lines. If so, counts it, starts the animation and disarms. Otherwise the reply is not read. |
 | `turn.complete` | Disarms at the end of the turn, whether a savata was thrown or not. |
 | `session.end` | On `/clear`, resets the count. |
@@ -65,8 +66,14 @@ that was held back.
 - Keeps three values in Claude Code's own session state: the savata count,
   the running animation frame, and whether the reply watch is armed. They
   last for the session; `/clear` resets them.
-- Appends one short note to the prompt of `/throwing:savata` (the escalation
-  count). It never changes any other skill, prompt or reply.
+- Appends one short note to the prompt of `/throwing:savata`: the escalation
+  count, and a reminder to use that count instead of searching the transcript
+  and to still write the savata's payload as the skill says. It never changes
+  any other skill, prompt or reply.
+- Edge case: if a subagent preloads `/throwing:savata`, the main
+  conversation's watch is armed for the rest of that turn too (the event does
+  not say which loop loaded the skill). Subagents' own replies are still
+  never read.
 
 ## Development
 
@@ -121,7 +128,8 @@ skill riceve il conteggio della sessione.
 
 | Hook | Cosa fa |
 | :--- | :--- |
-| `skill.prompt` | Quando viene invocata `/throwing:savata`, aggiunge al prompt della skill il conteggio delle savate della sessione e **arma** l'osservazione delle risposte. Tutte le altre skill passano invariate. |
+| `session.start` | Pulisce un fotogramma rimasto a metà dopo un ricaricamento. |
+| `skill.prompt` (solo `throwing:savata`) | Quando viene invocata la savata, aggiunge al suo prompt il conteggio delle savate della sessione e **arma** l'osservazione delle risposte. Il filtro seleziona solo quella skill: il prompt di nessun'altra skill arriva mai all'hook. |
 | `session.append` (risposte) | **Solo se armato**: controlla se la risposta del modello comincia con 🩴 e contiene una delle due righe in dialetto. Se sì, la conta, avvia l'animazione e disarma. Altrimenti la risposta non viene letta. |
 | `turn.complete` | Disarma alla fine del turno, che la savata sia partita o no. |
 | `session.end` | Con `/clear`, azzera il conteggio. |
@@ -144,8 +152,14 @@ trattenuta non si disegna niente.
 - Tiene tre valori nello stato di sessione di Claude Code: il conteggio delle
   savate, il fotogramma dell'animazione in corso e se l'osservazione è
   armata. Durano quanto la sessione; `/clear` li azzera.
-- Aggiunge una breve nota al prompt di `/throwing:savata` (il conteggio
-  dell'escalation). Non modifica mai altre skill, prompt o risposte.
+- Aggiunge una breve nota al prompt di `/throwing:savata`: il conteggio
+  dell'escalation e un promemoria di usare quel conteggio invece di cercare
+  nella conversazione, scrivendo comunque il payload della savata come dice
+  la skill. Non modifica mai altre skill, prompt o risposte.
+- Caso limite: se un subagent precarica `/throwing:savata`, l'osservazione
+  della conversazione principale resta armata anche per il resto di quel
+  turno (l'evento non dice quale ciclo ha caricato la skill). Le risposte
+  dei subagent continuano a non essere mai lette.
 
 ### Sviluppo
 

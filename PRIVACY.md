@@ -63,8 +63,9 @@ exactly what it does. Current state:
   animate it. Nothing is stored or sent anywhere; replies in any other turn,
   and subagents' replies, are never read.
 - Keeps a savata count, the animation frame and an armed flag in Claude
-  Code's own session state (reset by `/clear`), and appends the count to the
-  prompt of `/throwing:savata` only.
+  Code's own session state (reset by `/clear`), and appends a short note
+  (the count, and how to use it) to the prompt of `/throwing:savata` only;
+  no other skill's prompt reaches its hooks.
 
 Any future plugin added to this marketplace will be documented in the same
 way and must follow the rules in [`SECURITY.md`](./SECURITY.md) — no
@@ -152,8 +153,9 @@ Stato attuale:
   salvato o inviato altrove; le risposte degli altri turni e dei subagent
   non vengono mai lette. Tiene nello stato di sessione di Claude Code il
   conteggio delle savate, il fotogramma dell'animazione e un flag di
-  osservazione (azzerati da `/clear`), e aggiunge il conteggio solo al
-  prompt di `/throwing:savata`.
+  osservazione (azzerati da `/clear`), e aggiunge una breve nota (il
+  conteggio e come usarlo) solo al prompt di `/throwing:savata`; il prompt
+  di nessun'altra skill arriva ai suoi hook.
 
 Ogni futuro plugin sarà documentato allo stesso modo e dovrà seguire le
 regole in [`SECURITY.md`](./SECURITY.md): niente telemetria nascosta,
