@@ -34,7 +34,7 @@
       "name": "gh-triage",
       "source": "./plugins/gh-triage",
       "description": "End-to-end GitHub issue triage: classify feature vs fix, gate and prioritize features, resolve fixes in parallel/coordinated groups, review, open PRs, wait for CI, auto-merge on green, and update the changelog.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "Roberto Marchioro"
       },

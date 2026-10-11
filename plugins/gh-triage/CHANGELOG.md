@@ -7,6 +7,23 @@ and this plugin adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-11
+
+### Added
+
+- **Disk preflight** in Phase 2b of `/gh-triage:triage`, run before any
+  worktree-isolated agent is spawned. Each parallel worktree can build its own
+  multi-GB output directory (Rust `target/`, `node_modules`), so the
+  orchestrator now:
+  - measures free space against `N_parallel_groups × per_build_footprint`;
+  - when short, first dedupes the build cache (shared `CARGO_TARGET_DIR` /
+    pnpm store), then reclaims space (stale worktrees, regenerable build
+    dirs), then lowers parallelism by running groups in smaller batches;
+  - reports the numbers to the user and never fans out blind into a
+    near-full disk.
+- Mandatory worktree cleanup after each group merges or is routed to human
+  review, so a blocked group does not leave a multi-GB orphan behind.
+
 ## [0.1.0] - 2026-06-06
 
 First release of `gh-triage`.
@@ -33,4 +50,5 @@ First release of `gh-triage`.
 - Makes no network calls of its own — all GitHub access goes through the user's local, already-authenticated `gh` CLI.
 
 [Unreleased]: https://github.com/robertomarchioro/goldmarktplace/tree/main/plugins/gh-triage
+[0.1.1]: https://github.com/robertomarchioro/goldmarktplace/tree/main/plugins/gh-triage
 [0.1.0]: https://github.com/robertomarchioro/goldmarktplace/tree/main/plugins/gh-triage

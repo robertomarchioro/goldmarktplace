@@ -40,6 +40,16 @@ Build the dependency graph in the main loop:
 Print the plan: each group → {issues, files, ci_workflows, parallel-or-coordinated}. **If `--dry-run`, stop here and output the plan.** Otherwise, confirm the plan with the user once before fan-out (single confirmation, not per-group — matches autonomous mode).
 
 ## Phase 3 — Implement (fan-out)
+
+**Disk preflight (run BEFORE spawning any worktree agent).** Worktree-isolated agents that build can each create a full build-output dir (a Rust `target/`, `node_modules`, etc. can be many GB **per worktree**). Before fan-out:
+1. Measure free space and per-build footprint: `df -BG --output=avail / | tail -1` for free GB, and estimate the build dir size (e.g. `du -sBG <repo>/**/target 2>/dev/null` or, if absent, assume a conservative default like 15G for a Rust/Tauri repo, 2G for pure JS).
+2. Need ≈ `N_parallel_groups × per_build_footprint`. If `free < need`:
+   - **First, dedupe the build cache** so worktrees share ONE cache instead of N. For Rust set a shared target dir (e.g. `~/.cargo/config.toml` → `[build] target-dir = "…"`, or export `CARGO_TARGET_DIR`); this collapses N×footprint to ~1×. For JS rely on the shared pnpm store. Re-check `free` after.
+   - If still short, **reclaim**: `cargo clean` in the main checkout (regenerable), remove stale worktrees (`git worktree list` → `git worktree remove`), prune old build dirs.
+   - If still short, **reduce parallelism**: run groups in smaller batches (e.g. 2 at a time) instead of all at once, cleaning each group's worktree on merge.
+   - Tell the user the numbers (free vs needed) and what you did. Never fan out blind into a near-full disk — an ENOSPC mid-build wastes the whole parallel batch.
+3. **Cleanup is mandatory, not best-effort:** after each group merges OR is dropped to human-review, `git worktree remove --force` its worktree (and `cargo clean` if a shared cache isn't in use) so a blocked group doesn't leave a multi-GB orphan.
+
 Spawn one **fix-implementer** subagent per fix-group, **with `isolation: "worktree"`**, all independent islands in parallel (one message, multiple Agent calls). Coordinated clusters each get one agent (the agent serializes the shared-file edits internally). If a P0 feature was selected, implement it as its own group too (use fix-implementer with a feature-oriented brief, branch `feat/...`).
 
 Each agent returns its PR number, branch, files_changed, and changelog `summary`. Drop any group that returns `local_build: "blocked"` into the human-review list and keep going with the rest.
