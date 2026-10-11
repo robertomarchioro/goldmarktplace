@@ -39,6 +39,9 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
   plugin whose folder or catalog entry changed; a policy change or a manual
   run re-reviews all of them. Fail-closed: an unparseable verdict or a git
   error fails the job.
+- `Validate Plugins` now runs on every pull request. `validate` is a
+  required check on `main`, but its PR trigger was filtered to plugin
+  paths, so a docs- or CI-only PR never reported it and could not merge.
 
 ## [0.3.0] - 2026-06-07
 
