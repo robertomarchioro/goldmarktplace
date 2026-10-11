@@ -2,14 +2,9 @@ name: Validate Plugins
 
 on:
   workflow_dispatch:
+  # No path filter: `validate` is a required check on main, and a filtered
+  # PR (docs, CI) would never report it and could never merge.
   pull_request:
-    paths:
-      - '.claude-plugin/**'
-      - 'plugins/*/.claude-plugin/**'
-      - 'plugins/*/agents/**'
-      - 'plugins/*/skills/**'
-      - 'plugins/*/commands/**'
-      - 'plugins/*/hooks/**'
   push:
     branches: [main]
     paths:

@@ -29,6 +29,20 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
   worktree cleanup before parallel fan-out. See
   `plugins/gh-triage/CHANGELOG.md`.
 
+### Fixed
+- `Scan Plugins` workflow now reviews **local** plugins. The upstream
+  `scan-plugins` action only scans external entries, so every plugin in
+  this marketplace (all `./plugins/<name>`) passed the check unreviewed
+  (`Scan targets: 0`). A new step runs `.github/scripts/scan-local-plugins.sh`:
+  same policy prompt, same verdict schema (vendored as
+  `.github/policy/schema.json`), same read-only tools, for each local
+  plugin whose folder or catalog entry changed; a policy change or a manual
+  run re-reviews all of them. Fail-closed: an unparseable verdict or a git
+  error fails the job.
+- `Validate Plugins` now runs on every pull request. `validate` is a
+  required check on `main`, but its PR trigger was filtered to plugin
+  paths, so a docs- or CI-only PR never reported it and could not merge.
+
 ## [0.3.0] - 2026-06-07
 
 This release introduces `savata` as a model-invocable companion skill to

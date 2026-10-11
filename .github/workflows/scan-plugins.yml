@@ -66,3 +66,16 @@ jobs:
           fail-on-findings: "true"
           scan-all-external: ${{ inputs.scan_all || 'false' }}
           claude-cli-version: latest
+
+      # The action above only reviews external entries; every plugin in this
+      # marketplace is local (./plugins/<name>), so review those here against
+      # the same policy prompt. A manual run re-reviews all of them.
+      - name: Scan local plugins
+        if: steps.changes.outputs.relevant == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BASE_REF: ${{ github.event.pull_request.base.sha }}
+          SCAN_ALL: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          command -v claude >/dev/null || npm install -g @anthropic-ai/claude-code@latest
+          bash .github/scripts/scan-local-plugins.sh
