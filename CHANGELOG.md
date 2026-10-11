@@ -10,6 +10,17 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 
 ## [Unreleased]
 
+### Added
+- `CODE_OF_CONDUCT.md` — Contributor Covenant 2.1, with a short Italian
+  note. Violations are reported through GitHub's private reporting form,
+  the same channel as `SECURITY.md`. The file was already listed in the
+  README's repository structure but was missing.
+
+### Changed
+- `gh-triage` plugin: 0.1.0 → 0.1.1 — disk preflight and mandatory
+  worktree cleanup before parallel fan-out. See
+  `plugins/gh-triage/CHANGELOG.md`.
+
 ## [0.3.0] - 2026-06-07
 
 This release introduces `savata` as a model-invocable companion skill to
