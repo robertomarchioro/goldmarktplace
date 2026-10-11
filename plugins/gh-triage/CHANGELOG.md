@@ -7,6 +7,39 @@ and this plugin adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-10-11
+
+Follow-ups from the marketplace's first policy scan of local plugins.
+
+### Security
+
+- **Issue text is untrusted data.** The command and all three agents now
+  say so explicitly: they read issue titles and bodies to understand the
+  problem but never follow instructions found there. Issues that ask for
+  such actions go to the human-review list, and the classifier marks them
+  `low` confidence.
+- **No auto-merge for sensitive files.** A PR whose diff touches CI or
+  workflow config, release config or credential/secret files is held for
+  human review even when CI is green. `fix-implementer` stops with
+  `blocked` instead of editing those files, adding dependencies the fix
+  does not need, or running anything beyond the repo's own install, build
+  and test.
+
+### Changed
+
+- Disk preflight: the shared Rust build cache is now scoped to the run
+  (`CARGO_TARGET_DIR` passed in each implementer brief) instead of
+  suggesting an edit to the user-global `~/.cargo/config.toml`. User-global
+  config is not touched without asking.
+
+### Fixed
+
+- The review phase pointed to the `everything-claude-code` marketplace for
+  the optional reviewers, while the README points to Anthropic's official
+  marketplace; both now agree.
+- README and `PRIVACY.md` disclose that implementers run the repository's
+  own install/build/test commands, which may download dependencies.
+
 ## [0.1.1] - 2026-10-11
 
 ### Added
