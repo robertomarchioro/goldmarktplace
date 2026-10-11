@@ -43,7 +43,7 @@ exactly what it does. Current state:
   `disable-model-invocation: true`) and one model-invocable skill
   (`/throwing:savata`); both are pure in-context prompt engineering.
 
-### `gh-triage` 0.1.0
+### `gh-triage` 0.1.2
 - Makes **no network calls of its own**.
 - Uses the local `gh` CLI (already authenticated by the user) to read open
   issues and to perform issue, label, milestone, branch, and PR operations on
@@ -52,6 +52,9 @@ exactly what it does. Current state:
 - Reads project files for read-only impact analysis; the bundled implementer
   agent writes changes on isolated git worktrees / branches before opening
   PRs.
+- To verify a fix, the implementer agents run the repository's own install,
+  build and test commands, which may download dependencies from that
+  ecosystem's registry. Issue text is treated as untrusted data.
 - Registers no hooks.
 
 ### `throwing-fx` 0.1.0
@@ -104,7 +107,7 @@ Privacy or security concerns about a specific plugin: use
 ## 🇮🇹 Italiano
 
 > Data di entrata in vigore: 2026-05-16
-> Ultimo aggiornamento: 2026-05-16
+> Ultimo aggiornamento: 2026-10-11
 
 Questa policy si applica al marketplace `goldmarktplace` e ai plugin
 mantenuti in questo repository.
@@ -138,13 +141,16 @@ Stato attuale:
   lettura di file. Spedisce un command user-invoked (`/throwing:pigs`,
   `disable-model-invocation: true`) e una skill model-invocable
   (`/throwing:savata`); entrambi sono pure prompt engineering in-context.
-- **`gh-triage`** 0.1.0 — **nessuna chiamata di rete di propria iniziativa**;
+- **`gh-triage`** 0.1.2 — **nessuna chiamata di rete di propria iniziativa**;
   usa la `gh` CLI locale dell'utente (già autenticata) per leggere le issue
   e per eseguire operazioni su issue, label, milestone, branch e PR sul
   repository da cui parte il comando — tutte le richieste vanno alle API
   di GitHub con le credenziali dell'utente. Legge i file del progetto per
   impact analysis read-only; l'agent implementer scrive su worktree/branch
-  isolati prima di aprire le PR. Non registra hook.
+  isolati prima di aprire le PR. Per verificare un fix gli agent eseguono
+  install, build e test del repository, che possono scaricare dipendenze
+  dal registry dell'ecosistema. Il testo delle issue è trattato come dato
+  non fidato. Non registra hook.
 - **`throwing-fx`** 0.1.0 — nessuna chiamata di rete, nessuna lettura o
   scrittura di file. Registra **function hook**: legge il testo delle
   risposte del modello nella conversazione principale **solo tra

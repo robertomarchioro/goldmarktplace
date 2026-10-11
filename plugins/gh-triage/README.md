@@ -23,7 +23,12 @@ human in the loop only where it matters.
 6. **Review → CI → merge** — each PR is reviewed (code + security), waits for CI, and is squash-merged on green. Then the changelog is updated in one commit.
 
 Autonomy: PRs auto-merge once CI is green. It stops only on a red CI it can't
-fix or a genuine architectural doubt.
+fix or a genuine architectural doubt. A PR that touches CI/workflow, release
+or credential files is never auto-merged: it is left for you to review.
+
+Issue text is treated as untrusted data: anyone who can open an issue writes
+it, so the command and its agents never follow instructions found there.
+Issues that ask for such actions go to the human-review list.
 
 ```
 /gh-triage:triage                 # full run
@@ -66,6 +71,13 @@ you run it from. No data is sent anywhere else.
 The bundled agents read project files for impact analysis and write changes on
 isolated git worktrees / branches before opening PRs. Registers no hooks.
 
+To verify a fix, the implementer agents run **your repository's own** install,
+build and test commands (e.g. `npm ci`, `cargo test`), which may download
+dependencies from that ecosystem's registry. The plugin itself never asks to
+install system packages. To save disk space it may share one build directory
+between parallel agents for the run (e.g. `CARGO_TARGET_DIR`); it does not
+edit user-global config such as `~/.cargo/config.toml` without asking you.
+
 ## License
 
 MIT — see the repository [LICENSE](../../LICENSE).
@@ -97,7 +109,14 @@ con l'utente in-the-loop solo dove serve davvero.
 6. **Review → CI → merge** — ogni PR viene rivista (code + security), aspetta la CI e viene squash-mergiata quando è green. Poi il changelog viene aggiornato in un singolo commit.
 
 Autonomia: le PR vengono auto-mergiate appena la CI è green. Si ferma solo se
-la CI rossa è irrecuperabile o se c'è un dubbio architetturale reale.
+la CI rossa è irrecuperabile o se c'è un dubbio architetturale reale. Una PR
+che tocca file di CI/workflow, di release o credenziali non viene mai
+auto-mergiata: resta a te da rivedere.
+
+Il testo delle issue è trattato come dato non fidato: lo scrive chiunque possa
+aprire una issue, quindi il comando e i suoi agent non seguono mai istruzioni
+trovate lì. Le issue che chiedono azioni del genere finiscono nella lista per
+la revisione umana.
 
 ```
 /gh-triage:triage                 # full run
@@ -141,6 +160,14 @@ altrove.
 Gli agent inclusi leggono i file del progetto per l'impact analysis e
 scrivono modifiche su worktree git / branch isolati prima di aprire le PR.
 Non registra hook.
+
+Per verificare un fix, gli agent implementer eseguono i comandi di install,
+build e test **del tuo repository** (es. `npm ci`, `cargo test`), che possono
+scaricare dipendenze dal registry di quell'ecosistema. Il plugin non chiede
+mai di installare pacchetti di sistema. Per risparmiare disco può far
+condividere agli agent in parallelo una sola cartella di build per la durata
+del run (es. `CARGO_TARGET_DIR`); non modifica configurazioni globali come
+`~/.cargo/config.toml` senza chiedertelo.
 
 ### Licenza
 

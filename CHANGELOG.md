@@ -28,6 +28,11 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 - `gh-triage` plugin: 0.1.0 → 0.1.1 — disk preflight and mandatory
   worktree cleanup before parallel fan-out. See
   `plugins/gh-triage/CHANGELOG.md`.
+- `gh-triage` plugin: 0.1.1 → 0.1.2 — follow-ups from the first local
+  policy scan: issue text treated as untrusted data, no auto-merge for PRs
+  touching CI/release/credential files, run-scoped build cache instead of
+  editing `~/.cargo/config.toml`, consistent reviewer source, and the
+  dependency-download disclosure. `PRIVACY.md` updated.
 
 ### Fixed
 - `Scan Plugins` workflow now reviews **local** plugins. The upstream
