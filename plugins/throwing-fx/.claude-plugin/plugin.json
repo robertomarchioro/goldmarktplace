@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "throwing-fx",
+  "version": "0.1.0",
+  "description": "Optional effects for the throwing plugin: animates /throwing:savata above the prompt and keeps its escalation count across compaction. Registers function hooks; reads the model's replies only between a /throwing:savata invocation and the end of that turn, in memory. No network, no files.",
+  "author": {
+    "name": "Roberto Marchioro",
+    "url": "https://github.com/robertomarchioro"
+  },
+  "homepage": "https://github.com/robertomarchioro/goldmarktplace/tree/main/plugins/throwing-fx",
+  "repository": "https://github.com/robertomarchioro/goldmarktplace",
+  "license": "MIT",
+  "keywords": ["animation", "ux", "mod", "savata", "throwing"],
+  "types": "./types/index.d.ts"
+}

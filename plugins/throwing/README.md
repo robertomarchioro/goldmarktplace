@@ -13,6 +13,9 @@ Two paired tools for friction in a Claude Code session.
 
 Same purity for both: no hooks, no network calls, no file access.
 
+Want the savata animated on screen? Install the optional companion plugin
+[`throwing-fx`](../throwing-fx), which keeps `throwing` itself hook-free.
+
 ## Why "throwing pigs"?
 
 `/throwing:pigs` is a calque of the Venetian expression *tirar porchi* —
@@ -195,6 +198,9 @@ Due gesti accoppiati per gli attriti di una sessione Claude Code.
 
 Stessa purezza per entrambi: niente hook, niente chiamate di rete, niente
 accesso ai file.
+
+Vuoi vedere la savata animata a schermo? Installa il plugin companion
+opzionale [`throwing-fx`](../throwing-fx), che lascia `throwing` senza hook.
 
 ### Perché "throwing pigs"
 
