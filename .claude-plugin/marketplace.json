@@ -31,6 +31,18 @@
       "license": "MIT"
     },
     {
+      "name": "throwing-fx",
+      "source": "./plugins/throwing-fx",
+      "description": "Optional effects for the throwing plugin: animates /throwing:savata above the prompt and keeps its escalation count across compaction. Registers function hooks; reads the model's replies only between a /throwing:savata invocation and the end of that turn, in memory. No network, no files.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Roberto Marchioro"
+      },
+      "category": "productivity",
+      "keywords": ["animation", "ux", "mod", "savata", "throwing"],
+      "license": "MIT"
+    },
+    {
       "name": "gh-triage",
       "source": "./plugins/gh-triage",
       "description": "End-to-end GitHub issue triage: classify feature vs fix, gate and prioritize features, resolve fixes in parallel/coordinated groups, review, open PRs, wait for CI, auto-merge on green, and update the changelog.",

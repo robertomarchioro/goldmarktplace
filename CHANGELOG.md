@@ -11,6 +11,14 @@ This file tracks the marketplace itself: catalog entries, infrastructure, polici
 ## [Unreleased]
 
 ### Added
+- `throwing-fx` 0.1.0 — new optional companion plugin to `throwing`:
+  animates `/throwing:savata` in the band above the prompt (threat shake;
+  launch parabola with 💥 S'CIAF!) and keeps the savata's escalation count
+  across compaction. First plugin in the marketplace built on Claude Code
+  function hooks; its reply watch is gated to the turn in which the savata
+  is invoked. See `plugins/throwing-fx/CHANGELOG.md`.
+- `PRIVACY.md` and the `throwing` README point to `throwing-fx`; `throwing`
+  itself stays hook-free.
 - `CODE_OF_CONDUCT.md` — Contributor Covenant 2.1, with a short Italian
   note. Violations are reported through GitHub's private reporting form,
   the same channel as `SECURITY.md`. The file was already listed in the

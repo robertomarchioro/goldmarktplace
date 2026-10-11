@@ -1,7 +1,7 @@
 # Privacy Policy
 
 > Effective date: 2026-05-16
-> Last updated: 2026-05-16
+> Last updated: 2026-10-11
 
 This policy applies to the `goldmarktplace` marketplace and to the plugins
 maintained in this repository.
@@ -53,6 +53,19 @@ exactly what it does. Current state:
   agent writes changes on isolated git worktrees / branches before opening
   PRs.
 - Registers no hooks.
+
+### `throwing-fx` 0.1.0
+- Makes no network calls.
+- Reads and writes no files.
+- Registers **function hooks**. It reads the text of the model's replies in
+  the main conversation **only between an invocation of `/throwing:savata`
+  and the end of that turn**, in memory, to recognise a thrown savata and
+  animate it. Nothing is stored or sent anywhere; replies in any other turn,
+  and subagents' replies, are never read.
+- Keeps a savata count, the animation frame and an armed flag in Claude
+  Code's own session state (reset by `/clear`), and appends a short note
+  (the count, and how to use it) to the prompt of `/throwing:savata` only;
+  no other skill's prompt reaches its hooks.
 
 Any future plugin added to this marketplace will be documented in the same
 way and must follow the rules in [`SECURITY.md`](./SECURITY.md) — no
@@ -132,6 +145,17 @@ Stato attuale:
   di GitHub con le credenziali dell'utente. Legge i file del progetto per
   impact analysis read-only; l'agent implementer scrive su worktree/branch
   isolati prima di aprire le PR. Non registra hook.
+- **`throwing-fx`** 0.1.0 — nessuna chiamata di rete, nessuna lettura o
+  scrittura di file. Registra **function hook**: legge il testo delle
+  risposte del modello nella conversazione principale **solo tra
+  un'invocazione di `/throwing:savata` e la fine di quel turno**, in
+  memoria, per riconoscere la savata lanciata e animarla. Niente viene
+  salvato o inviato altrove; le risposte degli altri turni e dei subagent
+  non vengono mai lette. Tiene nello stato di sessione di Claude Code il
+  conteggio delle savate, il fotogramma dell'animazione e un flag di
+  osservazione (azzerati da `/clear`), e aggiunge una breve nota (il
+  conteggio e come usarlo) solo al prompt di `/throwing:savata`; il prompt
+  di nessun'altra skill arriva ai suoi hook.
 
 Ogni futuro plugin sarà documentato allo stesso modo e dovrà seguire le
 regole in [`SECURITY.md`](./SECURITY.md): niente telemetria nascosta,
